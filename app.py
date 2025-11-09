@@ -1,6 +1,6 @@
 """
 Agile Sprint Performance & Portfolio Analytics Dashboard
-Executive Presentation View
+Executive Presentation with Interactive Tabs
 
 Strategic Project Management & Operations Portfolio Project
 Designed to showcase PM and Strategy/Operations capabilities.
@@ -53,7 +53,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Custom CSS - Executive Presentation Style
+# Custom CSS - Executive Presentation Style with Tabs
 st.markdown("""
 <style>
     /* Import professional font */
@@ -73,6 +73,36 @@ st.markdown("""
         padding-top: 1rem !important;
         padding-bottom: 0rem !important;
         max-width: 100% !important;
+    }
+
+    /* Tab styling */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 8px;
+        background: linear-gradient(90deg, #2e7d9e 0%, #3b9fc7 100%);
+        padding: 15px 20px;
+        border-radius: 8px 8px 0 0;
+        margin-top: 10px;
+    }
+
+    .stTabs [data-baseweb="tab"] {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border-radius: 6px;
+        padding: 12px 24px;
+        font-weight: 600;
+        font-size: 1rem;
+        border: 2px solid transparent;
+    }
+
+    .stTabs [data-baseweb="tab"]:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    .stTabs [aria-selected="true"] {
+        background: white !important;
+        color: #2e7d9e !important;
+        border: 2px solid #2e7d9e !important;
+        font-weight: 700;
     }
 
     /* Left sidebar styling */
@@ -137,21 +167,8 @@ st.markdown("""
         color: #666;
         text-align: center;
         margin: 0;
-        padding: 0 0 20px 0;
+        padding: 0 0 10px 0;
         font-style: italic;
-    }
-
-    /* Blue dashboard header bar */
-    .dashboard-header {
-        background: linear-gradient(90deg, #2e7d9e 0%, #3b9fc7 100%);
-        color: white;
-        padding: 15px 25px;
-        border-radius: 8px;
-        margin: 20px 0;
-        font-size: 1.3rem;
-        font-weight: 700;
-        text-align: center;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.15);
     }
 
     /* KPI metric cards */
@@ -296,6 +313,15 @@ st.markdown("""
         color: #666 !important;
         font-weight: 600 !important;
     }
+
+    /* Table styling */
+    .dataframe {
+        font-size: 0.85rem;
+    }
+
+    h2, h3 {
+        color: #2d3748 !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -332,7 +358,7 @@ current_sprint_num = int(current_sprint['sprint_number'])
 sidebar_col, main_col = st.columns([1, 3])
 
 # ============================================================================
-# LEFT SIDEBAR - PROJECT OVERVIEW
+# LEFT SIDEBAR - PROJECT OVERVIEW (PERSISTENT ACROSS TABS)
 # ============================================================================
 with sidebar_col:
     # PROJECT OVERVIEW
@@ -424,7 +450,7 @@ with sidebar_col:
     """, unsafe_allow_html=True)
 
 # ============================================================================
-# MAIN CONTENT AREA
+# MAIN CONTENT AREA WITH TABS
 # ============================================================================
 with main_col:
     # Main Title
@@ -437,204 +463,453 @@ with main_col:
     </div>
     """, unsafe_allow_html=True)
 
-    # Dashboard Header Bar
-    st.markdown("""
-    <div class="dashboard-header">
-        Sprint Analytics & Portfolio Analytics Dashboard
-    </div>
-    """, unsafe_allow_html=True)
+    # Create tabs
+    tab1, tab2, tab3 = st.tabs(["📊 Executive Summary", "🎯 Portfolio & Strategy", "⚡ Delivery & Performance"])
 
     # ========================================================================
-    # KPI METRICS ROW
+    # TAB 1: EXECUTIVE SUMMARY
     # ========================================================================
-    st.markdown('<div style="margin: 20px 0;"></div>', unsafe_allow_html=True)
+    with tab1:
+        st.markdown('<div style="margin: 20px 0;"></div>', unsafe_allow_html=True)
 
-    kpi1, kpi2, kpi3, kpi4, kpi5 = st.columns(5)
+        # KPI METRICS ROW
+        kpi1, kpi2, kpi3, kpi4, kpi5 = st.columns(5)
 
-    # Calculate KPI values
-    current_velocity = int(current_sprint['velocity'])
-    avg_velocity_12m = int(sprints_df['velocity'].mean())
-    completion_rate = current_sprint['completion_rate']
-    health = calculate_sprint_health_score(current_sprint, sprints_df)
-    sprint_health_score = int(health['health_score'])
-    total_initiatives = len(initiatives_df)
-    completed_initiatives = len(initiatives_df[initiatives_df['status'] == 'Completed'])
+        # Calculate KPI values
+        current_velocity = int(current_sprint['velocity'])
+        avg_velocity_12m = int(sprints_df['velocity'].mean())
+        completion_rate = current_sprint['completion_rate']
+        health = calculate_sprint_health_score(current_sprint, sprints_df)
+        sprint_health_score = int(health['health_score'])
+        total_initiatives = len(initiatives_df)
+        completed_initiatives = len(initiatives_df[initiatives_df['status'] == 'Completed'])
 
-    with kpi1:
+        with kpi1:
+            st.markdown(f"""
+            <div class="kpi-card">
+                <div class="kpi-value">{current_velocity}</div>
+                <div class="kpi-label">Current Velocity</div>
+                <div class="kpi-sublabel">Story Points</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+        with kpi2:
+            st.markdown(f"""
+            <div class="kpi-card">
+                <div class="kpi-value">{avg_velocity_12m}</div>
+                <div class="kpi-label">Avg Velocity 12M</div>
+                <div class="kpi-sublabel">Historical Average</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+        with kpi3:
+            st.markdown(f"""
+            <div class="kpi-card">
+                <div class="kpi-value">{int(completion_rate*100)}%</div>
+                <div class="kpi-label">Completion Rate</div>
+                <div class="kpi-sublabel">Current Sprint</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+        with kpi4:
+            st.markdown(f"""
+            <div class="kpi-card">
+                <div class="kpi-value">{sprint_health_score}/100</div>
+                <div class="kpi-label">Sprint Health</div>
+                <div class="kpi-sublabel">Composite Score</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+        with kpi5:
+            st.markdown(f"""
+            <div class="kpi-card">
+                <div class="kpi-value">{total_initiatives}</div>
+                <div class="kpi-label">Total Projects</div>
+                <div class="kpi-sublabel">{completed_initiatives} Completed</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+        # CHARTS ROW 1: Velocity, Impact/Effort Matrix, Team Heatmap
+        st.markdown('<div style="margin: 30px 0 15px 0;"></div>', unsafe_allow_html=True)
+
+        chart1, chart2, chart3 = st.columns([1.2, 1.2, 1])
+
+        with chart1:
+            st.markdown('<div class="section-title">Velocity Trend</div>', unsafe_allow_html=True)
+            velocity_chart = create_velocity_trend_chart(sprints_df)
+            velocity_chart.update_layout(height=280, margin=dict(l=20, r=20, t=30, b=40))
+            st.plotly_chart(velocity_chart, use_container_width=True)
+
+        with chart2:
+            st.markdown('<div class="section-title">Impact vs Effort</div>', unsafe_allow_html=True)
+            matrix_chart = create_impact_effort_matrix(initiatives_df)
+            matrix_chart.update_layout(height=280, margin=dict(l=20, r=20, t=30, b=40))
+            st.plotly_chart(matrix_chart, use_container_width=True)
+
+        with chart3:
+            st.markdown('<div class="section-title">Team Performance</div>', unsafe_allow_html=True)
+
+            # Create simplified heatmap data (last 6 sprints)
+            team_sprint_metrics = []
+            for sprint_num in sprints_df.tail(6)['sprint_number']:
+                sprint_stories = stories_df[stories_df['sprint_number'] == sprint_num]
+                for member_id in team_df['member_id'].head(6):  # Top 6 team members
+                    member = team_df[team_df['member_id'] == member_id].iloc[0]
+                    member_stories = sprint_stories[sprint_stories['assignee_id'] == member_id]
+                    points = member_stories['final_story_points'].sum()
+                    utilization = (points / member['avg_capacity_per_sprint'] * 100) if member['avg_capacity_per_sprint'] > 0 else 0
+
+                    team_sprint_metrics.append({
+                        'member_name': member['name'].split()[0],  # First name only
+                        'sprint_number': sprint_num,
+                        'utilization_pct': utilization
+                    })
+
+            heatmap_df = pd.DataFrame(team_sprint_metrics)
+            heatmap_chart = create_capacity_heatmap(heatmap_df)
+            heatmap_chart.update_layout(height=280, margin=dict(l=20, r=20, t=30, b=40))
+            st.plotly_chart(heatmap_chart, use_container_width=True)
+
+        # CHARTS ROW 2: Work Distribution Stacked Area Chart
+        st.markdown('<div style="margin: 25px 0 15px 0;"></div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-title">Work Distribution & Completion Trends</div>', unsafe_allow_html=True)
+
+        story_type_by_sprint = calculate_story_type_distribution(stories_df)
+        stacked_area = create_story_type_stacked_area(story_type_by_sprint)
+        stacked_area.update_layout(height=300, margin=dict(l=20, r=20, t=30, b=40))
+        st.plotly_chart(stacked_area, use_container_width=True)
+
+        # STRATEGIC INSIGHTS & RECOMMENDATIONS
+        st.markdown('<div class="section-title">Strategic Insights & Recommendations</div>', unsafe_allow_html=True)
+
+        # Generate recommendations
+        quick_wins = get_quick_wins(initiatives_df)
+        quick_wins_backlog = quick_wins[quick_wins['status'] == 'Backlog']
+        time_sinks = get_time_sinks(initiatives_df)
+
+        # Calculate velocity improvement
+        velocity_change = ((sprints_df.tail(3)['velocity'].mean() - sprints_df.head(3)['velocity'].mean()) /
+                          sprints_df.head(3)['velocity'].mean() * 100)
+
+        # Risk assessment
+        team_utilization = current_sprint['completed_points'] / current_sprint['team_capacity']
+        risk_df = assess_all_initiatives_risk(initiatives_df, current_sprint_num, sprints_df, team_utilization)
+        high_risk_count = len(risk_df[risk_df['risk_level'] == 'High']) if len(risk_df) > 0 else 0
+
+        # Display recommendations
         st.markdown(f"""
-        <div class="kpi-card">
-            <div class="kpi-value">{current_velocity}</div>
-            <div class="kpi-label">Current Velocity</div>
-            <div class="kpi-sublabel">Story Points</div>
+        <div class="recommendation-box recommendation-box-green">
+            <strong>✅ STRENGTH:</strong> Team velocity improved {velocity_change:.0f}% over 6 months - momentum building
         </div>
         """, unsafe_allow_html=True)
 
-    with kpi2:
         st.markdown(f"""
-        <div class="kpi-card">
-            <div class="kpi-value">{avg_velocity_12m}</div>
-            <div class="kpi-label">Avg Velocity 12M</div>
-            <div class="kpi-sublabel">Historical Average</div>
+        <div class="recommendation-box recommendation-box-green">
+            <strong>⚡ OPPORTUNITY:</strong> {len(quick_wins_backlog)} "Quick Win" initiatives ready for immediate delivery
         </div>
         """, unsafe_allow_html=True)
 
-    with kpi3:
+        if high_risk_count > 0:
+            st.markdown(f"""
+            <div class="recommendation-box recommendation-box-red">
+                <strong>🚨 ALERT:</strong> {high_risk_count} initiatives flagged high-risk - realign scope or extend timeline
+            </div>
+            """, unsafe_allow_html=True)
+
         st.markdown(f"""
-        <div class="kpi-card">
-            <div class="kpi-value">{int(completion_rate*100)}%</div>
-            <div class="kpi-label">Completion Rate</div>
-            <div class="kpi-sublabel">Current Sprint</div>
+        <div class="recommendation-box recommendation-box-orange">
+            <strong>⚠️ OPTIMIZATION:</strong> Deprioritize {len(time_sinks)} "Time Sink" initiatives to free capacity
         </div>
         """, unsafe_allow_html=True)
 
-    with kpi4:
+        # Calculate predictability
+        predictability = 1 - (sprints_df['velocity'].std() / sprints_df['velocity'].mean())
+
         st.markdown(f"""
-        <div class="kpi-card">
-            <div class="kpi-value">{sprint_health_score}/100</div>
-            <div class="kpi-label">Sprint Health</div>
-            <div class="kpi-sublabel">Composite Score</div>
+        <div class="recommendation-box recommendation-box-green">
+            <strong>📊 PREDICTABILITY:</strong> Sprint predictability at {predictability*100:.0f}% - reliable for forecasting
         </div>
         """, unsafe_allow_html=True)
 
-    with kpi5:
-        st.markdown(f"""
-        <div class="kpi-card">
-            <div class="kpi-value">{total_initiatives}</div>
-            <div class="kpi-label">Total Projects</div>
-            <div class="kpi-sublabel">{completed_initiatives} Completed</div>
+        # PROJECT RESULTS & BUSINESS VALUE
+        st.markdown("""
+        <div class="results-box">
+            <div class="results-title">
+                ⭐ PROJECT RESULTS & BUSINESS VALUE ⭐
+            </div>
+            <div class="results-text">
+                <strong>Simulated this dashboard with 6+ simulations across 4 pages including portfolio metrics,
+                feature prioritization, sprint analytics, team performance insights, predictive forecasting,
+                and strategic ROI analysis.</strong> Each simulation ran Monte Carlo models with 1000+ iterations
+                to generate statistically significant delivery confidence intervals. Prioritized portfolio using
+                multi-factor scoring (Impact × Effort × Strategic Fit × ROI) to surface actionable "Quick Wins" and
+                flag resource-intensive "Time Sinks" for deprioritization.
+            </div>
         </div>
         """, unsafe_allow_html=True)
 
     # ========================================================================
-    # CHARTS ROW 1: Velocity, Impact/Effort Matrix, Team Heatmap
+    # TAB 2: PORTFOLIO & STRATEGY
     # ========================================================================
-    st.markdown('<div style="margin: 30px 0 15px 0;"></div>', unsafe_allow_html=True)
+    with tab2:
+        st.markdown('<div style="margin: 20px 0;"></div>', unsafe_allow_html=True)
 
-    chart1, chart2, chart3 = st.columns([1.2, 1.2, 1])
+        # Portfolio Prioritization Section
+        st.markdown('<div class="section-title">Portfolio Prioritization Matrix</div>', unsafe_allow_html=True)
 
-    with chart1:
-        st.markdown('<div class="section-title">Velocity Trend</div>', unsafe_allow_html=True)
-        velocity_chart = create_velocity_trend_chart(sprints_df)
-        velocity_chart.update_layout(height=280, margin=dict(l=20, r=20, t=30, b=40))
-        st.plotly_chart(velocity_chart, use_container_width=True)
+        col1, col2 = st.columns([2, 1])
 
-    with chart2:
-        st.markdown('<div class="section-title">Impact vs Effort</div>', unsafe_allow_html=True)
-        matrix_chart = create_impact_effort_matrix(initiatives_df)
-        matrix_chart.update_layout(height=280, margin=dict(l=20, r=20, t=30, b=40))
-        st.plotly_chart(matrix_chart, use_container_width=True)
+        with col1:
+            matrix_chart = create_impact_effort_matrix(initiatives_df)
+            matrix_chart.update_layout(height=450, margin=dict(l=20, r=20, t=30, b=40))
+            st.plotly_chart(matrix_chart, use_container_width=True)
 
-    with chart3:
-        st.markdown('<div class="section-title">Team Performance</div>', unsafe_allow_html=True)
+        with col2:
+            st.markdown("**Portfolio Composition**")
+            composition = get_portfolio_composition(initiatives_df)
 
-        # Create simplified heatmap data (last 6 sprints)
-        team_sprint_metrics = []
-        for sprint_num in sprints_df.tail(6)['sprint_number']:
-            sprint_stories = stories_df[stories_df['sprint_number'] == sprint_num]
-            for member_id in team_df['member_id'].head(6):  # Top 6 team members
-                member = team_df[team_df['member_id'] == member_id].iloc[0]
-                member_stories = sprint_stories[sprint_stories['assignee_id'] == member_id]
-                points = member_stories['final_story_points'].sum()
-                utilization = (points / member['avg_capacity_per_sprint'] * 100) if member['avg_capacity_per_sprint'] > 0 else 0
+            fig = px.bar(composition, x='quadrant', y='initiative_count',
+                        color='quadrant', color_discrete_map={
+                            'Quick Wins': COLORS['success'],
+                            'Major Projects': COLORS['primary'],
+                            'Fill-ins': COLORS['neutral'],
+                            'Time Sinks': COLORS['danger']
+                        },
+                        text='initiative_count',
+                        labels={'initiative_count': 'Count', 'quadrant': 'Quadrant'})
+            fig.update_traces(textposition='outside')
+            fig.update_layout(showlegend=False, height=450)
+            st.plotly_chart(fig, use_container_width=True)
 
-                team_sprint_metrics.append({
-                    'member_name': member['name'].split()[0],  # First name only
-                    'sprint_number': sprint_num,
-                    'utilization_pct': utilization
-                })
+        # Quick Wins and Time Sinks
+        st.markdown('<div style="margin: 25px 0 15px 0;"></div>', unsafe_allow_html=True)
+        col1, col2 = st.columns(2)
 
-        heatmap_df = pd.DataFrame(team_sprint_metrics)
-        heatmap_chart = create_capacity_heatmap(heatmap_df)
-        heatmap_chart.update_layout(height=280, margin=dict(l=20, r=20, t=30, b=40))
-        st.plotly_chart(heatmap_chart, use_container_width=True)
+        with col1:
+            st.markdown('<div class="section-title">⚡ Top Quick Wins</div>', unsafe_allow_html=True)
+            quick_wins = get_quick_wins(initiatives_df, limit=5)
+            for _, init in quick_wins.iterrows():
+                st.markdown(f"""
+                <div class="recommendation-box recommendation-box-green">
+                    <strong>{init['name']}</strong><br>
+                    Impact: {init['impact_score']}/10 | Effort: {init['effort_score']}/10 |
+                    Priority: {init['priority_score']:.2f}<br>
+                    Status: {init['status']} | Points: {init['total_story_points']}
+                </div>
+                """, unsafe_allow_html=True)
+
+        with col2:
+            st.markdown('<div class="section-title">⚠️ Time Sinks to Deprioritize</div>', unsafe_allow_html=True)
+            time_sinks = get_time_sinks(initiatives_df).head(5)
+            for _, init in time_sinks.iterrows():
+                st.markdown(f"""
+                <div class="recommendation-box recommendation-box-orange">
+                    <strong>{init['name']}</strong><br>
+                    Impact: {init['impact_score']}/10 | Effort: {init['effort_score']}/10 |
+                    Priority: {init['priority_score']:.2f}<br>
+                    Status: {init['status']} | Points: {init['total_story_points']}
+                </div>
+                """, unsafe_allow_html=True)
+
+        # Strategic Trends
+        st.markdown('<div style="margin: 30px 0 15px 0;"></div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-title">Strategic Trends & ROI Analysis</div>', unsafe_allow_html=True)
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+            # Velocity Stability
+            fig = go.Figure()
+            fig.add_trace(go.Scatter(
+                x=sprints_df['sprint_number'],
+                y=sprints_df['velocity'],
+                name='Velocity',
+                mode='lines+markers',
+                line=dict(color=COLORS['primary'], width=3)
+            ))
+
+            if 'velocity_rolling_avg' in sprints_df.columns:
+                fig.add_trace(go.Scatter(
+                    x=sprints_df['sprint_number'],
+                    y=sprints_df['velocity_rolling_avg'],
+                    name='3-Sprint Avg',
+                    mode='lines',
+                    line=dict(color=COLORS['warning'], width=2, dash='dash')
+                ))
+
+            fig.update_layout(
+                title='Velocity Stability Over Time',
+                xaxis_title='Sprint Number',
+                yaxis_title='Story Points',
+                height=350
+            )
+            st.plotly_chart(fig, use_container_width=True)
+
+        with col2:
+            # ROI Scatter
+            completed_initiatives = initiatives_df[initiatives_df['status'] == 'Completed']
+            if len(completed_initiatives) > 0:
+                roi_scatter = create_roi_scatter(completed_initiatives)
+                roi_scatter.update_layout(height=350)
+                st.plotly_chart(roi_scatter, use_container_width=True)
+
+        # Key Metrics
+        col1, col2, col3, col4 = st.columns(4)
+
+        early_velocity = sprints_df.head(3)['velocity'].mean()
+        late_velocity = sprints_df.tail(3)['velocity'].mean()
+        improvement = ((late_velocity - early_velocity) / early_velocity * 100)
+
+        with col1:
+            st.metric("Velocity Improvement", f"{improvement:.0f}%",
+                     delta=f"{late_velocity - early_velocity:.0f} pts")
+
+        with col2:
+            predictability = 1 - (sprints_df['velocity'].std() / sprints_df['velocity'].mean())
+            st.metric("Predictability", f"{predictability*100:.0f}%")
+
+        with col3:
+            success_rate = len(completed_initiatives) / len(initiatives_df) * 100 if len(initiatives_df) > 0 else 0
+            st.metric("Initiative Success Rate", f"{success_rate:.0f}%")
+
+        with col4:
+            st.metric("Total Delivered", f"{sprints_df['completed_points'].sum():.0f} pts")
 
     # ========================================================================
-    # CHARTS ROW 2: Work Distribution Stacked Area Chart
+    # TAB 3: DELIVERY & PERFORMANCE
     # ========================================================================
-    st.markdown('<div style="margin: 25px 0 15px 0;"></div>', unsafe_allow_html=True)
-    st.markdown('<div class="section-title">Work Distribution & Completion Trends</div>', unsafe_allow_html=True)
+    with tab3:
+        st.markdown('<div style="margin: 20px 0;"></div>', unsafe_allow_html=True)
 
-    story_type_by_sprint = calculate_story_type_distribution(stories_df)
-    stacked_area = create_story_type_stacked_area(story_type_by_sprint)
-    stacked_area.update_layout(height=300, margin=dict(l=20, r=20, t=30, b=40))
-    st.plotly_chart(stacked_area, use_container_width=True)
+        # Sprint Selector
+        st.markdown('<div class="section-title">Sprint Deep Dive</div>', unsafe_allow_html=True)
 
-    # ========================================================================
-    # STRATEGIC INSIGHTS & RECOMMENDATIONS
-    # ========================================================================
-    st.markdown('<div class="section-title">Strategic Insights & Recommendations</div>', unsafe_allow_html=True)
+        selected_sprint = st.selectbox(
+            "Select Sprint to Analyze",
+            options=sprints_df['sprint_number'].tolist(),
+            index=len(sprints_df) - 1
+        )
 
-    # Generate recommendations
-    quick_wins = get_quick_wins(initiatives_df)
-    quick_wins_backlog = quick_wins[quick_wins['status'] == 'Backlog']
-    time_sinks = get_time_sinks(initiatives_df)
+        sprint_data = sprints_df[sprints_df['sprint_number'] == selected_sprint].iloc[0]
+        sprint_stories = stories_df[stories_df['sprint_number'] == selected_sprint]
 
-    # Calculate velocity improvement
-    velocity_change = ((sprints_df.tail(3)['velocity'].mean() - sprints_df.head(3)['velocity'].mean()) /
-                      sprints_df.head(3)['velocity'].mean() * 100)
+        # Sprint Overview
+        col1, col2, col3, col4 = st.columns(4)
 
-    # Risk assessment
-    team_utilization = current_sprint['completed_points'] / current_sprint['team_capacity']
-    risk_df = assess_all_initiatives_risk(initiatives_df, current_sprint_num, sprints_df, team_utilization)
-    high_risk_count = len(risk_df[risk_df['risk_level'] == 'High']) if len(risk_df) > 0 else 0
+        with col1:
+            st.metric("Committed Points", int(sprint_data['committed_points']))
+        with col2:
+            st.metric("Completed Points", int(sprint_data['completed_points']))
+        with col3:
+            st.metric("Completion Rate", f"{sprint_data['completion_rate']*100:.0f}%")
+        with col4:
+            utilization = sprint_data['completed_points'] / sprint_data['team_capacity'] * 100
+            st.metric("Capacity Utilization", f"{utilization:.0f}%")
 
-    # Display recommendations
-    st.markdown(f"""
-    <div class="recommendation-box recommendation-box-green">
-        <strong>✅ STRENGTH:</strong> Team velocity improved {velocity_change:.0f}% over 6 months - momentum building
-    </div>
-    """, unsafe_allow_html=True)
+        # Charts
+        st.markdown('<div style="margin: 25px 0 15px 0;"></div>', unsafe_allow_html=True)
+        col1, col2 = st.columns(2)
 
-    st.markdown(f"""
-    <div class="recommendation-box recommendation-box-green">
-        <strong>⚡ OPPORTUNITY:</strong> {len(quick_wins_backlog)} "Quick Win" initiatives ready for immediate delivery
-    </div>
-    """, unsafe_allow_html=True)
+        with col1:
+            status_counts = sprint_stories['status'].value_counts().reset_index()
+            status_counts.columns = ['Status', 'Count']
 
-    if high_risk_count > 0:
-        st.markdown(f"""
-        <div class="recommendation-box recommendation-box-red">
-            <strong>🚨 ALERT:</strong> {high_risk_count} initiatives flagged high-risk - realign scope or extend timeline
-        </div>
-        """, unsafe_allow_html=True)
+            fig = px.pie(status_counts, values='Count', names='Status',
+                        title=f"Sprint {selected_sprint} Story Status")
+            fig.update_layout(height=350)
+            st.plotly_chart(fig, use_container_width=True)
 
-    st.markdown(f"""
-    <div class="recommendation-box recommendation-box-orange">
-        <strong>⚠️ OPTIMIZATION:</strong> Deprioritize {len(time_sinks)} "Time Sink" initiatives to free capacity
-    </div>
-    """, unsafe_allow_html=True)
+        with col2:
+            completed_stories = sprint_stories[sprint_stories['status'] == 'Completed']
+            if len(completed_stories) > 0:
+                cycle_time_chart = create_cycle_time_boxplot(completed_stories)
+                cycle_time_chart.update_layout(height=350)
+                st.plotly_chart(cycle_time_chart, use_container_width=True)
 
-    # Calculate predictability
-    predictability = 1 - (sprints_df['velocity'].std() / sprints_df['velocity'].mean())
+        # Team Performance
+        st.markdown('<div style="margin: 30px 0 15px 0;"></div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-title">Team Performance Analytics</div>', unsafe_allow_html=True)
 
-    st.markdown(f"""
-    <div class="recommendation-box recommendation-box-green">
-        <strong>📊 PREDICTABILITY:</strong> Sprint predictability at {predictability*100:.0f}% - reliable for forecasting
-    </div>
-    """, unsafe_allow_html=True)
+        completed_stories_all = stories_df[stories_df['status'] == 'Completed']
+        velocity_contrib = calculate_team_velocity_contribution(completed_stories_all, team_df)
 
-    # ========================================================================
-    # PROJECT RESULTS & BUSINESS VALUE
-    # ========================================================================
-    st.markdown("""
-    <div class="results-box">
-        <div class="results-title">
-            ⭐ PROJECT RESULTS & BUSINESS VALUE ⭐
-        </div>
-        <div class="results-text">
-            <strong>Simulated this dashboard with 6+ simulations across 4 pages including portfolio metrics,
-            feature prioritization, sprint analytics, team performance insights, predictive forecasting,
-            and strategic ROI analysis.</strong> Each simulation ran Monte Carlo models with 1000+ iterations
-            to generate statistically significant delivery confidence intervals. Prioritized portfolio using
-            multi-factor scoring (Impact × Effort × Strategic Fit × ROI) to surface actionable "Quick Wins" and
-            flag resource-intensive "Time Sinks" for deprioritization.
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+        fig = px.bar(velocity_contrib, x='points_delivered', y='name', orientation='h',
+                    color='points_delivered', color_continuous_scale='Blues',
+                    text='points_delivered',
+                    labels={'points_delivered': 'Story Points Delivered', 'name': 'Team Member'})
+        fig.update_traces(textposition='outside')
+        fig.update_layout(showlegend=False, height=400)
+        st.plotly_chart(fig, use_container_width=True)
 
-    # ========================================================================
-    # FOOTER - DIRECTOR ALIGNMENT
-    # ========================================================================
+        # Predictive Insights
+        st.markdown('<div style="margin: 30px 0 15px 0;"></div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-title">Predictive Insights & Risk Assessment</div>', unsafe_allow_html=True)
+
+        col1, col2 = st.columns([1, 2])
+
+        with col1:
+            health = calculate_sprint_health_score(current_sprint, sprints_df)
+            health_gauge = create_health_gauge(health['health_score'])
+            health_gauge.update_layout(height=300)
+            st.plotly_chart(health_gauge, use_container_width=True)
+
+            if health['health_score'] >= 80:
+                st.success("✅ **Excellent** - Sprint on track")
+            elif health['health_score'] >= 60:
+                st.warning("⚠️ **Monitor** - Some concerns")
+            else:
+                st.error("❌ **At Risk** - Intervention needed")
+
+        with col2:
+            # Risk assessment
+            team_utilization = current_sprint['completed_points'] / current_sprint['team_capacity']
+            risk_df = assess_all_initiatives_risk(initiatives_df, current_sprint_num, sprints_df, team_utilization)
+
+            if len(risk_df) > 0:
+                risk_counts = risk_df['risk_level'].value_counts().reset_index()
+                risk_counts.columns = ['Risk Level', 'Count']
+
+                risk_colors = {'Low': COLORS['success'], 'Medium': COLORS['warning'], 'High': COLORS['danger']}
+                fig = px.pie(risk_counts, values='Count', names='Risk Level',
+                            color='Risk Level', color_discrete_map=risk_colors,
+                            title='Initiative Risk Distribution')
+                fig.update_layout(height=300)
+                st.plotly_chart(fig, use_container_width=True)
+
+        # Velocity Forecast
+        st.markdown('<div style="margin: 25px 0 15px 0;"></div>', unsafe_allow_html=True)
+
+        forecast = forecast_velocity_next_n_sprints(sprints_df, n_sprints=3)
+        future_sprints = list(range(current_sprint_num + 1, current_sprint_num + 4))
+
+        fig = go.Figure()
+
+        fig.add_trace(go.Scatter(
+            x=sprints_df['sprint_number'],
+            y=sprints_df['velocity'],
+            name='Historical',
+            mode='lines+markers',
+            line=dict(color=COLORS['primary'], width=2)
+        ))
+
+        fig.add_trace(go.Scatter(
+            x=future_sprints,
+            y=forecast['forecast'],
+            name='Forecast',
+            mode='lines+markers',
+            line=dict(color=COLORS['warning'], width=2, dash='dash')
+        ))
+
+        fig.update_layout(
+            title='Velocity Forecast (Next 3 Sprints)',
+            xaxis_title='Sprint Number',
+            yaxis_title='Story Points',
+            height=350
+        )
+
+        st.plotly_chart(fig, use_container_width=True)
+
+    # FOOTER (PERSISTENT ACROSS TABS)
     st.markdown("""
     <div class="footer-bar">
         DIRECTOR ALIGNMENT
