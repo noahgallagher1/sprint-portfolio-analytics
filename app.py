@@ -57,304 +57,199 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS - Enhanced Visual Design
+# Custom CSS - Clean, PM-Focused Design
 st.markdown("""
 <style>
-    /* Import Google Font */
+    /* Clean, readable font */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-    /* Global Styles */
     * {
         font-family: 'Inter', sans-serif !important;
     }
 
-    /* Main Title Styling */
-    h1 {
-        color: #1e3a8a !important;
-        font-weight: 700 !important;
-        font-size: 2.5rem !important;
-        margin-bottom: 0.5rem !important;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    /* IMPORTANT: Fix sidebar visibility */
+    [data-testid="stSidebar"] {
+        background-color: #f8f9fa !important;
     }
 
-    /* Section Headers */
-    h2 {
-        color: #2563eb !important;
+    /* Simple, clear titles */
+    h1 {
+        color: #1a1a1a !important;
         font-weight: 600 !important;
-        border-bottom: 3px solid #3b82f6;
-        padding-bottom: 12px !important;
+        font-size: 2.2rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    h2 {
+        color: #2d3748 !important;
+        font-weight: 600 !important;
+        font-size: 1.5rem !important;
         margin-top: 2rem !important;
-        font-size: 1.8rem !important;
+        margin-bottom: 1rem !important;
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 0.5rem !important;
     }
 
     h3 {
-        color: #374151 !important;
-        font-weight: 600 !important;
-        font-size: 1.3rem !important;
+        color: #4a5568 !important;
+        font-weight: 500 !important;
+        font-size: 1.1rem !important;
     }
 
-    /* Enhanced Metric Cards */
-    .big-metric-card {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 30px;
-        border-radius: 16px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        text-align: center;
-        color: white;
-        margin: 10px 0;
-        transition: transform 0.3s ease;
-    }
-
-    .big-metric-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-    }
-
-    .big-metric-number {
-        font-size: 3.5rem;
-        font-weight: 700;
-        margin: 10px 0;
-        text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-    }
-
-    .big-metric-label {
-        font-size: 1.1rem;
-        opacity: 0.95;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    /* Success Card (Green) */
+    /* Clean metric cards - no gradients */
     .metric-card {
-        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-        padding: 25px;
-        border-radius: 16px;
-        border-left: 6px solid #2E86AB;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        margin: 15px 0;
-        transition: all 0.3s ease;
-    }
-
-    .metric-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 4px solid #3b82f6;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        margin: 10px 0;
     }
 
     .metric-card h3 {
-        color: #1e40af !important;
-        margin-bottom: 10px !important;
-        font-size: 1.2rem !important;
+        color: #2d3748 !important;
+        margin-bottom: 8px !important;
+        font-size: 1rem !important;
+        font-weight: 600 !important;
     }
 
     .metric-card p {
-        font-size: 1.05rem;
-        line-height: 1.6;
-        margin: 5px 0;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #4a5568;
     }
 
     .metric-card b {
-        color: #1e3a8a;
-        font-size: 1.3rem;
+        color: #1a202c;
+        font-size: 1.5rem;
+        font-weight: 700;
     }
 
+    /* Color-coded cards - simple borders */
     .success-card {
-        background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-        border-left-color: #06A77D;
+        border-left-color: #10b981;
+        background: #f0fdf4;
     }
 
     .success-card h3 {
         color: #065f46 !important;
     }
 
-    .success-card b {
-        color: #047857;
-    }
-
     .warning-card {
-        background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
         border-left-color: #f59e0b;
+        background: #fffbeb;
     }
 
     .warning-card h3 {
         color: #92400e !important;
     }
 
-    .warning-card b {
-        color: #b45309;
-    }
-
     .danger-card {
-        background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
-        border-left-color: #e74c3c;
+        border-left-color: #ef4444;
+        background: #fef2f2;
     }
 
     .danger-card h3 {
         color: #991b1b !important;
     }
 
-    .danger-card b {
-        color: #dc2626;
-    }
-
-    /* Insight Boxes */
-    .insight-box {
-        background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
-        padding: 25px;
-        border-radius: 16px;
-        border-left: 6px solid #9333ea;
-        box-shadow: 0 4px 15px rgba(147,51,234,0.2);
-        margin: 20px 0;
-    }
-
-    .insight-box h3 {
-        color: #6b21a8 !important;
-        margin-bottom: 12px !important;
-    }
-
-    /* Recommendations */
-    .recommendation {
-        background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-        padding: 20px 25px;
-        border-radius: 12px;
-        margin: 15px 0;
-        border-left: 5px solid #2563eb;
-        box-shadow: 0 4px 12px rgba(37,99,235,0.15);
-        transition: all 0.3s ease;
-    }
-
-    .recommendation:hover {
-        transform: translateX(5px);
-        box-shadow: 0 6px 20px rgba(37,99,235,0.25);
-    }
-
-    .recommendation h4 {
-        color: #1e40af !important;
-        margin-bottom: 8px !important;
-        font-size: 1.15rem !important;
-    }
-
-    /* Stats Box */
-    .stats-box {
-        background: white;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        text-align: center;
-        margin: 10px 0;
-        border-top: 4px solid #3b82f6;
-    }
-
-    .stats-number {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: #1e3a8a;
-        margin: 10px 0;
-    }
-
-    .stats-label {
-        font-size: 0.9rem;
-        color: #6b7280;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        font-weight: 600;
-    }
-
-    /* Alert Boxes */
+    /* Simple alert boxes */
     .alert-success {
-        background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
-        border-left: 5px solid #10b981;
-        padding: 15px 20px;
-        border-radius: 10px;
-        margin: 10px 0;
+        background: #d1fae5;
+        border-left: 4px solid #10b981;
+        padding: 16px;
+        border-radius: 6px;
+        margin: 15px 0;
         font-weight: 500;
         color: #065f46;
     }
 
     .alert-warning {
-        background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-        border-left: 5px solid #f59e0b;
-        padding: 15px 20px;
-        border-radius: 10px;
-        margin: 10px 0;
+        background: #fef3c7;
+        border-left: 4px solid #f59e0b;
+        padding: 16px;
+        border-radius: 6px;
+        margin: 15px 0;
         font-weight: 500;
         color: #92400e;
     }
 
     .alert-danger {
-        background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
-        border-left: 5px solid #ef4444;
-        padding: 15px 20px;
-        border-radius: 10px;
-        margin: 10px 0;
+        background: #fee2e2;
+        border-left: 4px solid #ef4444;
+        padding: 16px;
+        border-radius: 6px;
+        margin: 15px 0;
         font-weight: 500;
         color: #991b1b;
     }
 
-    /* Streamlit Metric Enhancement */
-    [data-testid="stMetricValue"] {
-        font-size: 2.5rem !important;
-        font-weight: 700 !important;
-        color: #1e3a8a !important;
+    /* Clean recommendations */
+    .recommendation {
+        background: white;
+        padding: 16px;
+        border-radius: 6px;
+        margin: 12px 0;
+        border-left: 4px solid #3b82f6;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
 
-    [data-testid="stMetricDelta"] {
-        font-size: 1.1rem !important;
+    .recommendation h4 {
+        color: #1e40af !important;
+        margin-bottom: 6px !important;
+        font-size: 1rem !important;
         font-weight: 600 !important;
     }
 
-    /* Sidebar Styling */
-    [data-testid="stSidebar"] {
-        background: linear-gradient(180deg, #1e3a8a 0%, #3b82f6 100%);
+    /* Larger, clearer metrics */
+    [data-testid="stMetricValue"] {
+        font-size: 2rem !important;
+        font-weight: 700 !important;
+        color: #1a202c !important;
     }
 
-    [data-testid="stSidebar"] .css-1d391kg {
-        color: white !important;
+    [data-testid="stMetricDelta"] {
+        font-size: 0.9rem !important;
+        font-weight: 500 !important;
     }
 
-    /* Divider */
+    /* Simple divider */
     hr {
-        margin: 30px 0;
+        margin: 25px 0;
         border: none;
-        height: 2px;
-        background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+        height: 1px;
+        background: #e2e8f0;
     }
 
-    /* Page Badge */
+    /* Remove page badge - too cluttered */
     .page-badge {
-        display: inline-block;
-        background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
-        color: white;
-        padding: 8px 20px;
-        border-radius: 20px;
-        font-weight: 600;
-        font-size: 0.9rem;
-        margin-bottom: 10px;
-        box-shadow: 0 4px 10px rgba(139,92,246,0.3);
+        display: none;
     }
 
-    /* Table Styling */
+    /* Cleaner tables */
     [data-testid="stDataFrame"] {
-        border-radius: 12px;
+        border-radius: 6px;
         overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
-    /* Button Enhancements */
+    /* Simple buttons */
     .stButton>button {
-        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        background: #3b82f6;
         color: white;
         border: none;
-        border-radius: 10px;
-        padding: 12px 24px;
-        font-weight: 600;
-        box-shadow: 0 4px 12px rgba(37,99,235,0.3);
-        transition: all 0.3s ease;
+        border-radius: 6px;
+        padding: 10px 20px;
+        font-weight: 500;
     }
 
     .stButton>button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(37,99,235,0.4);
+        background: #2563eb;
+    }
+
+    /* More whitespace */
+    .block-container {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -386,11 +281,11 @@ except Exception as e:
     st.stop()
 
 # Sidebar navigation
-st.sidebar.title("📊 Sprint Analytics")
-st.sidebar.markdown("---")
+st.sidebar.title("Sprint Analytics Dashboard")
+st.sidebar.markdown("")
 
 page = st.sidebar.radio(
-    "Navigate to:",
+    "**Navigate to:**",
     [
         "🎯 Executive Summary",
         "📋 Portfolio Prioritization",
@@ -402,19 +297,17 @@ page = st.sidebar.radio(
 )
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("### About")
-st.sidebar.info(
+st.sidebar.markdown("### About This Dashboard")
+st.sidebar.markdown(
     """
-    This dashboard provides comprehensive analytics for Agile teams,
-    demonstrating portfolio management, predictive insights, and
-    data-driven decision-making capabilities.
+    Track team performance, prioritize work, and
+    make data-driven decisions.
 
-    **Key Features:**
-    - Initiative prioritization
-    - Sprint health scoring
-    - Risk assessment
-    - Capacity planning
-    - Strategic recommendations
+    **What you'll find:**
+    - Portfolio health & initiative priorities
+    - Sprint metrics & trends
+    - Team capacity & workload
+    - Delivery forecasts
     """
 )
 
@@ -426,9 +319,8 @@ current_sprint_num = int(current_sprint['sprint_number'])
 # PAGE 1: EXECUTIVE SUMMARY
 # ============================================================================
 if page == "🎯 Executive Summary":
-    st.markdown('<div class="page-badge">📊 EXECUTIVE DASHBOARD</div>', unsafe_allow_html=True)
-    st.title("🎯 Executive Summary")
-    st.markdown("### 📌 Key Performance Indicators at a Glance")
+    st.title("Executive Summary")
+    st.markdown("*Quick overview of team performance and portfolio health*")
     st.markdown("")
 
     # Top KPI Cards
@@ -608,9 +500,8 @@ if page == "🎯 Executive Summary":
 # PAGE 2: PORTFOLIO PRIORITIZATION
 # ============================================================================
 elif page == "📋 Portfolio Prioritization":
-    st.markdown('<div class="page-badge">🎯 PORTFOLIO MANAGEMENT</div>', unsafe_allow_html=True)
-    st.title("📋 Portfolio Prioritization")
-    st.markdown("### 🎪 Initiative Intake, Scoring & Backlog Management")
+    st.title("Portfolio Prioritization")
+    st.markdown("*Prioritize initiatives based on impact and effort*")
     st.markdown("")
 
     # Filters
@@ -762,9 +653,8 @@ elif page == "📋 Portfolio Prioritization":
 # PAGE 3: SPRINT DEEP DIVE
 # ============================================================================
 elif page == "🔍 Sprint Deep Dive":
-    st.markdown('<div class="page-badge">🔬 SPRINT ANALYSIS</div>', unsafe_allow_html=True)
-    st.title("🔍 Sprint Deep Dive")
-    st.markdown("### 📊 Detailed Sprint Performance & Bottleneck Analysis")
+    st.title("Sprint Deep Dive")
+    st.markdown("*Analyze sprint performance and identify bottlenecks*")
     st.markdown("")
 
     # Sprint selector
@@ -891,9 +781,8 @@ elif page == "🔍 Sprint Deep Dive":
 # PAGE 4: TEAM PERFORMANCE
 # ============================================================================
 elif page == "👥 Team Performance":
-    st.markdown('<div class="page-badge">👥 TEAM ANALYTICS</div>', unsafe_allow_html=True)
-    st.title("👥 Team Performance")
-    st.markdown("### 🏃‍♂️ Individual Contributions & Capacity Management")
+    st.title("Team Performance")
+    st.markdown("*Track individual contributions and team capacity*")
     st.markdown("")
 
     # Team velocity contribution
@@ -1017,9 +906,8 @@ elif page == "👥 Team Performance":
 # PAGE 5: PREDICTIVE INSIGHTS & RISK SCORING
 # ============================================================================
 elif page == "🔮 Predictive Insights":
-    st.markdown('<div class="page-badge">🔮 PREDICTIVE ANALYTICS</div>', unsafe_allow_html=True)
-    st.title("🔮 Predictive Insights & Risk Scoring")
-    st.markdown("### 🎲 Monte Carlo Simulations & Risk Assessment")
+    st.title("Predictive Insights")
+    st.markdown("*Forecast delivery and assess initiative risks*")
     st.markdown("")
 
     # Sprint Health Score
@@ -1233,9 +1121,8 @@ elif page == "🔮 Predictive Insights":
 # PAGE 6: STRATEGIC TRENDS & ROI ANALYSIS
 # ============================================================================
 elif page == "📈 Strategic Trends":
-    st.markdown('<div class="page-badge">📈 STRATEGIC INSIGHTS</div>', unsafe_allow_html=True)
-    st.title("📈 Strategic Trends & ROI Analysis")
-    st.markdown("### 💎 Long-term Performance & Business Impact")
+    st.title("Strategic Trends")
+    st.markdown("*Long-term performance patterns and ROI analysis*")
     st.markdown("")
 
     # Velocity Stability Curve
