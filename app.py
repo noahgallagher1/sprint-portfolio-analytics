@@ -176,7 +176,7 @@ st.markdown("""
         background: white;
         border: 2px solid #e2e8f0;
         border-radius: 8px;
-        padding: 20px;
+        padding: 15px 10px;
         text-align: center;
         box-shadow: 0 2px 6px rgba(0,0,0,0.08);
         height: 120px;
@@ -186,33 +186,35 @@ st.markdown("""
     }
 
     .kpi-value {
-        font-size: 2.2rem;
+        font-size: 1.9rem;
         font-weight: 800;
         color: #2e7d9e;
-        margin: 5px 0;
+        margin: 3px 0;
+        line-height: 1.1;
     }
 
     .kpi-label {
-        font-size: 0.85rem;
+        font-size: 0.7rem;
         color: #666;
         font-weight: 600;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.3px;
+        line-height: 1.2;
     }
 
     .kpi-sublabel {
-        font-size: 0.75rem;
+        font-size: 0.65rem;
         color: #999;
-        margin-top: 3px;
+        margin-top: 2px;
     }
 
     /* Section headers */
     .section-title {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         font-weight: 700;
         color: #2d3748;
-        margin: 25px 0 15px 0;
-        padding-bottom: 8px;
+        margin: 15px 0 10px 0;
+        padding-bottom: 6px;
         border-bottom: 3px solid #2e7d9e;
     }
 
@@ -407,18 +409,15 @@ with sidebar_col:
         <div class="sidebar-header-teal">
             BUSINESS IMPACT
         </div>
-        <div class="sidebar-text">
-            <div class="sidebar-bullet">
-            → Strategic Value:<br>
-            Optimize resource allocation across<br>
-            competing priorities<br><br>
-
-            → Delivery Confidence:<br>
-            Quantify delivery risk & capacity early<br><br>
-
-            → Portfolio ROI:<br>
+        <div class="sidebar-text" style="line-height: 1.7;">
+            <strong>→ Strategic Value:</strong><br>
+            Optimize resource allocation across competing priorities
+            <br><br>
+            <strong>→ Delivery Confidence:</strong><br>
+            Quantify delivery risk & capacity early
+            <br><br>
+            <strong>→ Portfolio ROI:</strong><br>
             75%+ effort on high-ROI initiatives
-            </div>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -537,13 +536,13 @@ with main_col:
         with chart1:
             st.markdown('<div class="section-title">Velocity Trend</div>', unsafe_allow_html=True)
             velocity_chart = create_velocity_trend_chart(sprints_df)
-            velocity_chart.update_layout(height=280, margin=dict(l=20, r=20, t=30, b=40))
+            velocity_chart.update_layout(height=240, margin=dict(l=30, r=10, t=20, b=30))
             st.plotly_chart(velocity_chart, use_container_width=True)
 
         with chart2:
             st.markdown('<div class="section-title">Impact vs Effort</div>', unsafe_allow_html=True)
             matrix_chart = create_impact_effort_matrix(initiatives_df)
-            matrix_chart.update_layout(height=280, margin=dict(l=20, r=20, t=30, b=40))
+            matrix_chart.update_layout(height=240, margin=dict(l=30, r=10, t=20, b=30))
             st.plotly_chart(matrix_chart, use_container_width=True)
 
         with chart3:
@@ -567,19 +566,20 @@ with main_col:
 
             heatmap_df = pd.DataFrame(team_sprint_metrics)
             heatmap_chart = create_capacity_heatmap(heatmap_df)
-            heatmap_chart.update_layout(height=280, margin=dict(l=20, r=20, t=30, b=40))
+            heatmap_chart.update_layout(height=240, margin=dict(l=30, r=10, t=20, b=30))
             st.plotly_chart(heatmap_chart, use_container_width=True)
 
         # CHARTS ROW 2: Work Distribution Stacked Area Chart
-        st.markdown('<div style="margin: 25px 0 15px 0;"></div>', unsafe_allow_html=True)
+        st.markdown('<div style="margin: 20px 0 10px 0;"></div>', unsafe_allow_html=True)
         st.markdown('<div class="section-title">Work Distribution & Completion Trends</div>', unsafe_allow_html=True)
 
         story_type_by_sprint = calculate_story_type_distribution(stories_df)
         stacked_area = create_story_type_stacked_area(story_type_by_sprint)
-        stacked_area.update_layout(height=300, margin=dict(l=20, r=20, t=30, b=40))
+        stacked_area.update_layout(height=220, margin=dict(l=30, r=10, t=10, b=30))
         st.plotly_chart(stacked_area, use_container_width=True)
 
-        # STRATEGIC INSIGHTS & RECOMMENDATIONS
+        # STRATEGIC INSIGHTS & RECOMMENDATIONS (2-column layout)
+        st.markdown('<div style="margin: 15px 0 10px 0;"></div>', unsafe_allow_html=True)
         st.markdown('<div class="section-title">Strategic Insights & Recommendations</div>', unsafe_allow_html=True)
 
         # Generate recommendations
@@ -596,42 +596,47 @@ with main_col:
         risk_df = assess_all_initiatives_risk(initiatives_df, current_sprint_num, sprints_df, team_utilization)
         high_risk_count = len(risk_df[risk_df['risk_level'] == 'High']) if len(risk_df) > 0 else 0
 
-        # Display recommendations
-        st.markdown(f"""
-        <div class="recommendation-box recommendation-box-green">
-            <strong>✅ STRENGTH:</strong> Team velocity improved {velocity_change:.0f}% over 6 months - momentum building
-        </div>
-        """, unsafe_allow_html=True)
+        # Display recommendations in 2-column layout
+        rec_col1, rec_col2 = st.columns(2)
 
-        st.markdown(f"""
-        <div class="recommendation-box recommendation-box-green">
-            <strong>⚡ OPPORTUNITY:</strong> {len(quick_wins_backlog)} "Quick Win" initiatives ready for immediate delivery
-        </div>
-        """, unsafe_allow_html=True)
-
-        if high_risk_count > 0:
+        with rec_col1:
             st.markdown(f"""
-            <div class="recommendation-box recommendation-box-red">
-                <strong>🚨 ALERT:</strong> {high_risk_count} initiatives flagged high-risk - realign scope or extend timeline
+            <div class="recommendation-box recommendation-box-green">
+                <strong>✅ STRENGTH:</strong> Team velocity improved {velocity_change:.0f}% over 6 months - momentum building
             </div>
             """, unsafe_allow_html=True)
 
-        st.markdown(f"""
-        <div class="recommendation-box recommendation-box-orange">
-            <strong>⚠️ OPTIMIZATION:</strong> Deprioritize {len(time_sinks)} "Time Sink" initiatives to free capacity
-        </div>
-        """, unsafe_allow_html=True)
+            st.markdown(f"""
+            <div class="recommendation-box recommendation-box-green">
+                <strong>⚡ OPPORTUNITY:</strong> {len(quick_wins_backlog)} "Quick Win" initiatives ready for immediate delivery
+            </div>
+            """, unsafe_allow_html=True)
 
-        # Calculate predictability
-        predictability = 1 - (sprints_df['velocity'].std() / sprints_df['velocity'].mean())
+            # Calculate predictability
+            predictability = 1 - (sprints_df['velocity'].std() / sprints_df['velocity'].mean())
 
-        st.markdown(f"""
-        <div class="recommendation-box recommendation-box-green">
-            <strong>📊 PREDICTABILITY:</strong> Sprint predictability at {predictability*100:.0f}% - reliable for forecasting
-        </div>
-        """, unsafe_allow_html=True)
+            st.markdown(f"""
+            <div class="recommendation-box recommendation-box-green">
+                <strong>📊 PREDICTABILITY:</strong> Sprint predictability at {predictability*100:.0f}% - reliable for forecasting
+            </div>
+            """, unsafe_allow_html=True)
+
+        with rec_col2:
+            if high_risk_count > 0:
+                st.markdown(f"""
+                <div class="recommendation-box recommendation-box-red">
+                    <strong>🚨 ALERT:</strong> {high_risk_count} initiatives flagged high-risk - realign scope or extend timeline
+                </div>
+                """, unsafe_allow_html=True)
+
+            st.markdown(f"""
+            <div class="recommendation-box recommendation-box-orange">
+                <strong>⚠️ OPTIMIZATION:</strong> Deprioritize {len(time_sinks)} "Time Sink" initiatives to free capacity
+            </div>
+            """, unsafe_allow_html=True)
 
         # PROJECT RESULTS & BUSINESS VALUE
+        st.markdown('<div style="margin: 15px 0 0 0;"></div>', unsafe_allow_html=True)
         st.markdown("""
         <div class="results-box">
             <div class="results-title">
