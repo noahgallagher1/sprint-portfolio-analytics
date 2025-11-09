@@ -42,7 +42,8 @@ from utils.visualizations import (
     create_impact_effort_matrix, create_health_gauge,
     create_capacity_heatmap, create_cycle_time_boxplot,
     create_story_type_stacked_area, create_completion_probability_chart,
-    create_initiative_funnel, create_treemap, create_roi_scatter, COLORS
+    create_initiative_funnel, create_treemap, create_roi_scatter,
+    create_portfolio_quadrant_summary, COLORS
 )
 
 # Page config
@@ -544,10 +545,10 @@ with main_col:
             st.plotly_chart(velocity_chart, use_container_width=True)
 
         with chart2:
-            st.markdown('<div class="section-title">Impact vs Effort</div>', unsafe_allow_html=True)
-            matrix_chart = create_impact_effort_matrix(initiatives_df)
-            matrix_chart.update_layout(height=240, margin=dict(l=30, r=10, t=20, b=30))
-            st.plotly_chart(matrix_chart, use_container_width=True)
+            st.markdown('<div class="section-title">Portfolio Composition</div>', unsafe_allow_html=True)
+            portfolio_chart = create_portfolio_quadrant_summary(initiatives_df)
+            portfolio_chart.update_layout(height=240, margin=dict(l=30, r=10, t=10, b=30))
+            st.plotly_chart(portfolio_chart, use_container_width=True)
 
         with chart3:
             st.markdown('<div class="section-title">Team Performance</div>', unsafe_allow_html=True)

@@ -293,17 +293,66 @@ def create_capacity_heatmap(team_metrics_by_sprint):
         y=pivot_data.index,
         colorscale=colorscale,
         zmid=85,  # Center around 85% utilization
-        text=pivot_data.values.round(0),
-        texttemplate='%{text}%',
-        textfont={"size": 10},
-        colorbar=dict(title="Utilization %")
+        colorbar=dict(title="Utilization %"),
+        hovertemplate='<b>%{y}</b><br>Sprint: %{x}<br>Utilization: %{z:.0f}%<extra></extra>'
     ))
 
     fig.update_layout(
-        title='Team Capacity Utilization Heatmap',
         xaxis_title='Sprint Number',
         yaxis_title='Team Member',
-        height=400
+        height=400,
+        margin=dict(t=10)
+    )
+
+    return fig
+
+
+def create_portfolio_quadrant_summary(initiatives_df):
+    """
+    Create a simple bar chart showing portfolio composition by quadrant.
+    Alternative to the detailed scatter plot for executive summary.
+
+    Args:
+        initiatives_df: Initiatives DataFrame with quadrant classification
+
+    Returns:
+        plotly Figure
+    """
+    # Count initiatives by quadrant
+    quadrant_counts = initiatives_df['quadrant'].value_counts().reset_index()
+    quadrant_counts.columns = ['Quadrant', 'Count']
+
+    # Get total story points by quadrant
+    quadrant_points = initiatives_df.groupby('quadrant')['total_story_points'].sum().reset_index()
+    quadrant_points.columns = ['Quadrant', 'Total Points']
+
+    # Merge
+    quadrant_summary = quadrant_counts.merge(quadrant_points, on='Quadrant')
+
+    # Order by priority (Quick Wins, Major Projects, Fill-ins, Time Sinks)
+    order = ['Quick Wins', 'Major Projects', 'Fill-ins', 'Time Sinks']
+    quadrant_summary['Quadrant'] = pd.Categorical(quadrant_summary['Quadrant'], categories=order, ordered=True)
+    quadrant_summary = quadrant_summary.sort_values('Quadrant')
+
+    # Create grouped bar chart
+    fig = go.Figure()
+
+    fig.add_trace(go.Bar(
+        name='Initiatives',
+        x=quadrant_summary['Quadrant'],
+        y=quadrant_summary['Count'],
+        marker_color=[QUADRANT_COLORS.get(q, COLORS['neutral']) for q in quadrant_summary['Quadrant']],
+        text=quadrant_summary['Count'],
+        textposition='outside',
+        hovertemplate='<b>%{x}</b><br>Initiatives: %{y}<extra></extra>'
+    ))
+
+    fig.update_layout(
+        xaxis_title='Portfolio Quadrant',
+        yaxis_title='Number of Initiatives',
+        showlegend=False,
+        height=400,
+        margin=dict(t=10)
     )
 
     return fig
