@@ -1,0 +1,29 @@
+initiative_id,name,description,impact_score,effort_score,strategic_category,status,owner,total_story_points,completed_story_points,target_sprint,actual_completion_sprint,roi_estimate,stories_count
+INIT-001,Checkout Flow Optimization,Initiative to deliver checkout flow optimization capabilities,9,3,Revenue Growth,Active,Mike Johnson (Dir Engineering),10,6,1,,High,86
+INIT-002,One-Click Reorder Feature,Initiative to deliver one-click reorder feature capabilities,8,4,Customer Experience,Active,Emily Zhang (Dir Operations),18,11,4,,High,23
+INIT-003,Email Campaign Automation,Initiative to deliver email campaign automation capabilities,8,3,Revenue Growth,Completed,Sarah Chen (VP Product),11,11,4,4.0,Medium,13
+INIT-004,Mobile App Push Notifications,Initiative to deliver mobile app push notifications capabilities,7,4,Customer Experience,Active,David Park (Head of Growth),15,8,4,,High,16
+INIT-005,Search Performance Enhancement,Initiative to deliver search performance enhancement capabilities,7,3,Customer Experience,Active,Lisa Rodriguez (Head of CX),17,8,4,,Medium,20
+INIT-006,New Payment Gateway Integration,Initiative to deliver new payment gateway integration capabilities,9,8,Revenue Growth,Completed,Lisa Rodriguez (Head of CX),48,48,4,5.0,High,33
+INIT-007,Customer Personalization Engine,Initiative to deliver customer personalization engine capabilities,9,9,Revenue Growth,Backlog,Sarah Chen (VP Product),50,0,7,,High,0
+INIT-008,Mobile App Redesign,Initiative to deliver mobile app redesign capabilities,8,9,Customer Experience,Backlog,Lisa Rodriguez (Head of CX),43,0,9,,Medium,0
+INIT-009,Multi-Warehouse Fulfillment System,Initiative to deliver multi-warehouse fulfillment system capabilities,8,8,Cost Reduction,Deprioritized,David Park (Head of Growth),43,10,10,,High,0
+INIT-010,Advanced Analytics Platform,Initiative to deliver advanced analytics platform capabilities,7,7,Process Improvement,Active,Tom Wilson (CFO),33,25,10,,Medium,10
+INIT-011,Inventory Management System,Initiative to deliver inventory management system capabilities,8,8,Cost Reduction,Backlog,David Park (Head of Growth),44,0,10,,High,0
+INIT-012,Design System Implementation,Initiative to deliver design system implementation capabilities,7,7,Technical Excellence,Deprioritized,Sarah Chen (VP Product),36,7,10,,Medium,0
+INIT-013,API Rate Limiting & Security,Initiative to deliver api rate limiting & security capabilities,7,6,Technical Excellence,Active,Sarah Chen (VP Product),27,19,5,,Medium,17
+INIT-014,Update Footer Links,Initiative to deliver update footer links capabilities,3,2,Process Improvement,Backlog,David Park (Head of Growth),19,0,5,,Low,0
+INIT-015,Add Product Tooltips,Initiative to deliver add product tooltips capabilities,4,3,Customer Experience,Active,David Park (Head of Growth),21,10,4,,Low,22
+INIT-016,Refactor CSS Utilities,Initiative to deliver refactor css utilities capabilities,3,3,Technical Excellence,Deprioritized,Mike Johnson (Dir Engineering),12,2,11,,Low,0
+INIT-017,Update Terms of Service Page,Initiative to deliver update terms of service page capabilities,2,2,Process Improvement,Backlog,Tom Wilson (CFO),19,0,7,,Low,0
+INIT-018,Add Loading Spinners,Initiative to deliver add loading spinners capabilities,4,3,Customer Experience,Active,Sarah Chen (VP Product),17,10,8,,Low,17
+INIT-019,Update Error Messages,Initiative to deliver update error messages capabilities,3,2,Customer Experience,Active,Sarah Chen (VP Product),15,7,3,,Low,43
+INIT-020,Database Query Optimization,Initiative to deliver database query optimization capabilities,5,4,Technical Excellence,Active,Tom Wilson (CFO),25,10,7,,Medium,12
+INIT-021,Add Google Analytics Events,Initiative to deliver add google analytics events capabilities,4,3,Process Improvement,Backlog,Mike Johnson (Dir Engineering),24,0,8,,Low,0
+INIT-022,Update Product Image Alt Tags,Initiative to deliver update product image alt tags capabilities,3,2,Customer Experience,Active,Emily Zhang (Dir Operations),12,8,4,,Low,27
+INIT-023,Implement Feature Flags,Initiative to deliver implement feature flags capabilities,5,4,Technical Excellence,Active,Tom Wilson (CFO),28,20,8,,Medium,12
+INIT-024,Legacy Code Migration,Initiative to deliver legacy code migration capabilities,4,9,Technical Excellence,Deprioritized,Sarah Chen (VP Product),44,6,7,,Low,0
+INIT-025,Internal Admin Tool Rebuild,Initiative to deliver internal admin tool rebuild capabilities,3,8,Process Improvement,Backlog,Mike Johnson (Dir Engineering),38,0,12,,Low,0
+INIT-026,Deprecated API Cleanup,Initiative to deliver deprecated api cleanup capabilities,4,7,Technical Excellence,Backlog,Emily Zhang (Dir Operations),43,0,12,,Low,0
+INIT-027,Old Report Generator Update,Initiative to deliver old report generator update capabilities,3,7,Process Improvement,Backlog,Emily Zhang (Dir Operations),42,0,9,,Low,0
+INIT-028,Archive System Refactor,Initiative to deliver archive system refactor capabilities,4,8,Technical Excellence,Active,Sarah Chen (VP Product),43,33,10,,Low,4

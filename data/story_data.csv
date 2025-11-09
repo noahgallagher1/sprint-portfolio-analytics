@@ -1,0 +1,356 @@
+story_id,sprint_number,story_points,final_story_points,story_type,initiative_id,status,cycle_time_days,num_blockers,blocker_duration_days,assignee_id,assignee_name,priority,dependencies_count,start_date,estimation_accuracy
+STORY-0001,1,3,2,Bug,INIT-001,Completed,2,0,0,TM003,Carol Johnson,High,0,2025-05-15,0.3333333333333333
+STORY-0002,1,8,5,Bug,INIT-001,Completed,5,0,0,TM004,David Kim,High,0,2025-05-14,0.375
+STORY-0003,1,8,6,Spike,INIT-001,Completed,10,0,0,TM001,Alice Chen,High,0,2025-05-15,0.25
+STORY-0004,1,3,2,Feature,INIT-001,Completed,10,0,0,TM002,Bob Martinez,High,1,2025-05-13,0.3333333333333333
+STORY-0005,1,8,8,Bug,INIT-001,Completed,8,0,0,TM003,Carol Johnson,High,0,2025-05-16,0.0
+STORY-0006,1,2,2,Technical Debt,INIT-001,Completed,5,0,0,TM006,Frank Wilson,High,0,2025-05-16,0.0
+STORY-0007,1,1,1,Feature,INIT-001,Completed,6,1,3,TM004,David Kim,High,0,2025-05-13,0.0
+STORY-0008,1,1,1,Bug,INIT-001,Incomplete,14,1,0,TM004,David Kim,High,0,2025-05-16,0.0
+STORY-0009,1,2,2,Feature,INIT-001,Incomplete,13,1,1,TM002,Bob Martinez,High,0,2025-05-16,0.0
+STORY-0010,1,3,3,Feature,INIT-001,Incomplete,11,0,0,TM007,Grace Lee,High,1,2025-05-13,0.0
+STORY-0011,1,2,2,Feature,INIT-001,Incomplete,5,1,1,TM002,Bob Martinez,Medium,0,2025-05-13,0.0
+STORY-0012,1,1,1,Bug,INIT-001,Incomplete,3,1,3,TM008,Henry Brown,Medium,0,2025-05-16,0.0
+STORY-0013,1,1,1,Feature,INIT-001,Incomplete,13,1,2,TM007,Grace Lee,Medium,0,2025-05-16,0.0
+STORY-0014,1,2,2,Feature,INIT-001,Descoped,12,0,2,TM001,Alice Chen,Medium,0,2025-05-16,0.0
+STORY-0015,1,8,8,Technical Debt,INIT-001,Carried Over,13,0,1,TM002,Bob Martinez,Medium,0,2025-05-14,0.0
+STORY-0016,1,5,5,Feature,INIT-001,Incomplete,10,0,3,TM006,Frank Wilson,Medium,2,2025-05-14,0.0
+STORY-0017,1,3,3,Feature,INIT-001,Descoped,5,1,2,TM002,Bob Martinez,Medium,0,2025-05-13,0.0
+STORY-0018,1,1,1,Feature,INIT-001,Incomplete,2,0,2,TM005,Emma Rodriguez,Medium,0,2025-05-15,0.0
+STORY-0019,1,8,8,Spike,INIT-001,Descoped,5,0,1,TM005,Emma Rodriguez,Medium,0,2025-05-13,0.0
+STORY-0020,1,8,8,Feature,INIT-001,Descoped,6,0,2,TM008,Henry Brown,Medium,0,2025-05-13,0.0
+STORY-0021,1,1,1,Bug,INIT-001,Carried Over,10,0,5,TM005,Emma Rodriguez,Medium,0,2025-05-16,0.0
+STORY-0022,1,8,8,Bug,INIT-001,Carried Over,7,2,0,TM006,Frank Wilson,Medium,0,2025-05-14,0.0
+STORY-0023,1,5,5,Feature,INIT-001,Incomplete,6,0,1,TM002,Bob Martinez,Medium,0,2025-05-16,0.0
+STORY-0024,1,8,8,Bug,INIT-001,Incomplete,7,0,1,TM006,Frank Wilson,Medium,1,2025-05-16,0.0
+STORY-0025,1,2,2,Feature,INIT-001,Incomplete,14,1,1,TM004,David Kim,Low,1,2025-05-16,0.0
+STORY-0026,1,3,3,Feature,INIT-001,Descoped,4,1,2,TM005,Emma Rodriguez,Low,1,2025-05-15,0.0
+STORY-0027,1,3,3,Bug,INIT-001,Descoped,6,0,0,TM005,Emma Rodriguez,Low,0,2025-05-15,0.0
+STORY-0028,1,1,1,Feature,INIT-001,Incomplete,7,0,3,TM004,David Kim,Low,0,2025-05-16,0.0
+STORY-0029,1,1,1,Feature,INIT-001,Incomplete,11,1,2,TM002,Bob Martinez,Low,1,2025-05-15,0.0
+STORY-0030,1,8,8,Feature,INIT-001,Descoped,5,0,1,TM007,Grace Lee,Low,0,2025-05-16,0.0
+STORY-0031,1,2,2,Bug,INIT-001,Incomplete,5,1,1,TM007,Grace Lee,Low,1,2025-05-15,0.0
+STORY-0032,1,5,5,Feature,INIT-001,Descoped,3,0,2,TM006,Frank Wilson,Low,0,2025-05-14,0.0
+STORY-0033,1,3,3,Feature,INIT-001,Incomplete,4,1,0,TM008,Henry Brown,Low,0,2025-05-14,0.0
+STORY-0034,2,2,2,Bug,INIT-001,Completed,2,0,0,TM004,David Kim,High,0,2025-05-30,0.0
+STORY-0035,2,1,1,Feature,INIT-001,Completed,8,0,0,TM008,Henry Brown,High,0,2025-05-29,0.0
+STORY-0036,2,5,5,Bug,INIT-001,Completed,9,0,0,TM003,Carol Johnson,High,1,2025-05-30,0.0
+STORY-0037,2,5,4,Feature,INIT-001,Completed,5,0,0,TM008,Henry Brown,High,0,2025-05-29,0.2
+STORY-0038,2,5,4,Feature,INIT-001,Completed,4,0,0,TM006,Frank Wilson,High,1,2025-05-27,0.2
+STORY-0039,2,2,1,Feature,INIT-001,Completed,3,0,0,TM002,Bob Martinez,High,0,2025-05-29,0.5
+STORY-0040,2,8,11,Feature,INIT-001,Completed,4,0,0,TM007,Grace Lee,High,2,2025-05-27,0.375
+STORY-0041,2,8,7,Feature,INIT-001,Completed,6,0,0,TM007,Grace Lee,High,1,2025-05-30,0.125
+STORY-0042,2,8,8,Bug,INIT-001,Completed,8,0,0,TM007,Grace Lee,High,0,2025-05-30,0.0
+STORY-0043,2,3,3,Bug,INIT-001,Incomplete,3,0,3,TM001,Alice Chen,Medium,0,2025-05-30,0.0
+STORY-0044,2,2,2,Technical Debt,INIT-001,Carried Over,11,1,1,TM008,Henry Brown,Medium,0,2025-05-30,0.0
+STORY-0045,2,3,3,Bug,INIT-001,Incomplete,8,0,0,TM006,Frank Wilson,Medium,0,2025-05-27,0.0
+STORY-0046,2,1,1,Bug,INIT-001,Completed,4,0,0,TM003,Carol Johnson,Medium,0,2025-05-30,0.0
+STORY-0047,2,1,1,Feature,INIT-001,Incomplete,13,1,1,TM002,Bob Martinez,Medium,1,2025-05-28,0.0
+STORY-0048,2,3,3,Feature,INIT-001,Descoped,11,1,3,TM004,David Kim,Medium,0,2025-05-28,0.0
+STORY-0049,2,1,1,Bug,INIT-001,Descoped,13,0,0,TM006,Frank Wilson,Medium,0,2025-05-29,0.0
+STORY-0050,2,1,1,Feature,INIT-001,Carried Over,11,1,0,TM007,Grace Lee,Medium,2,2025-05-30,0.0
+STORY-0051,2,2,2,Feature,INIT-001,Descoped,13,1,3,TM007,Grace Lee,Medium,1,2025-05-29,0.0
+STORY-0052,2,3,3,Technical Debt,INIT-001,Incomplete,4,1,3,TM006,Frank Wilson,Medium,0,2025-05-29,0.0
+STORY-0053,2,2,2,Feature,INIT-001,Incomplete,5,1,0,TM004,David Kim,Medium,0,2025-05-30,0.0
+STORY-0054,2,5,5,Feature,INIT-001,Descoped,12,1,3,TM001,Alice Chen,Low,0,2025-05-28,0.0
+STORY-0055,2,5,5,Bug,INIT-001,Incomplete,8,1,3,TM006,Frank Wilson,Low,0,2025-05-30,0.0
+STORY-0056,2,3,3,Feature,INIT-001,Incomplete,6,0,1,TM004,David Kim,Low,0,2025-05-30,0.0
+STORY-0057,2,3,3,Bug,INIT-001,Incomplete,5,0,2,TM003,Carol Johnson,Low,0,2025-05-28,0.0
+STORY-0058,2,3,3,Feature,INIT-001,Descoped,3,1,0,TM001,Alice Chen,Low,0,2025-05-30,0.0
+STORY-0059,2,5,5,Feature,INIT-001,Incomplete,14,1,0,TM002,Bob Martinez,Low,0,2025-05-27,0.0
+STORY-0060,2,8,8,Bug,INIT-001,Descoped,5,0,1,TM002,Bob Martinez,Low,0,2025-05-30,0.0
+STORY-0061,2,8,8,Feature,INIT-001,Incomplete,8,1,2,TM007,Grace Lee,Low,0,2025-05-27,0.0
+STORY-0062,3,2,1,Bug,INIT-019,Completed,2,0,0,TM003,Carol Johnson,High,0,2025-06-11,0.5
+STORY-0063,3,1,1,Feature,INIT-019,Completed,5,1,2,TM005,Emma Rodriguez,High,1,2025-06-13,0.0
+STORY-0064,3,1,1,Bug,INIT-019,Completed,10,0,0,TM004,David Kim,High,0,2025-06-11,0.0
+STORY-0065,3,2,2,Technical Debt,INIT-001,Completed,2,1,2,TM005,Emma Rodriguez,High,0,2025-06-13,0.0
+STORY-0066,3,3,2,Bug,INIT-019,Completed,9,0,0,TM008,Henry Brown,High,0,2025-06-10,0.3333333333333333
+STORY-0067,3,5,4,Bug,INIT-019,Completed,1,1,3,TM001,Alice Chen,High,3,2025-06-12,0.2
+STORY-0068,3,8,6,Feature,INIT-001,Completed,8,0,0,TM008,Henry Brown,High,2,2025-06-11,0.25
+STORY-0069,3,8,6,Feature,INIT-019,Completed,2,0,0,TM007,Grace Lee,High,0,2025-06-10,0.25
+STORY-0070,3,2,2,Feature,INIT-019,Completed,5,0,0,TM007,Grace Lee,Medium,1,2025-06-10,0.0
+STORY-0071,3,5,7,Feature,INIT-019,Completed,6,0,0,TM007,Grace Lee,Medium,1,2025-06-10,0.4
+STORY-0072,3,8,8,Feature,INIT-001,Incomplete,10,1,3,TM001,Alice Chen,Medium,0,2025-06-11,0.0
+STORY-0073,3,3,2,Feature,INIT-019,Completed,2,1,3,TM004,David Kim,Medium,1,2025-06-12,0.3333333333333333
+STORY-0074,3,8,8,Feature,INIT-019,Carried Over,6,1,0,TM003,Carol Johnson,Medium,0,2025-06-12,0.0
+STORY-0075,3,8,8,Bug,INIT-019,Incomplete,4,1,1,TM007,Grace Lee,Medium,0,2025-06-11,0.0
+STORY-0076,3,1,1,Feature,INIT-019,Completed,6,0,0,TM005,Emma Rodriguez,Medium,1,2025-06-12,0.0
+STORY-0077,3,3,3,Bug,INIT-019,Incomplete,9,1,2,TM006,Frank Wilson,Medium,0,2025-06-13,0.0
+STORY-0078,3,5,5,Technical Debt,INIT-001,Incomplete,10,1,1,TM007,Grace Lee,Medium,0,2025-06-13,0.0
+STORY-0079,3,5,5,Feature,INIT-001,Incomplete,3,1,0,TM008,Henry Brown,Medium,0,2025-06-13,0.0
+STORY-0080,3,1,1,Bug,INIT-019,Incomplete,2,1,2,TM006,Frank Wilson,Medium,0,2025-06-13,0.0
+STORY-0081,3,1,1,Technical Debt,INIT-019,Descoped,12,1,0,TM002,Bob Martinez,Low,0,2025-06-12,0.0
+STORY-0082,3,2,2,Bug,INIT-019,Descoped,12,0,3,TM003,Carol Johnson,Low,0,2025-06-10,0.0
+STORY-0083,3,1,1,Feature,INIT-001,Incomplete,7,0,1,TM007,Grace Lee,Low,0,2025-06-11,0.0
+STORY-0084,3,2,2,Feature,INIT-019,Incomplete,8,0,1,TM008,Henry Brown,Low,0,2025-06-13,0.0
+STORY-0085,3,3,3,Bug,INIT-019,Descoped,9,0,0,TM008,Henry Brown,Low,2,2025-06-12,0.0
+STORY-0086,3,5,5,Bug,INIT-019,Incomplete,7,1,0,TM004,David Kim,Low,0,2025-06-12,0.0
+STORY-0087,3,8,8,Feature,INIT-019,Carried Over,11,1,0,TM001,Alice Chen,Low,2,2025-06-13,0.0
+STORY-0088,4,8,7,Bug,INIT-004,Completed,4,0,0,TM003,Carol Johnson,High,0,2025-06-24,0.125
+STORY-0089,4,3,2,Bug,INIT-001,Completed,10,0,0,TM003,Carol Johnson,High,0,2025-06-26,0.3333333333333333
+STORY-0090,4,3,4,Bug,INIT-003,Completed,4,0,0,TM006,Frank Wilson,High,0,2025-06-26,0.3333333333333333
+STORY-0091,4,2,2,Feature,INIT-019,Completed,5,0,0,TM006,Frank Wilson,High,1,2025-06-27,0.0
+STORY-0092,4,1,1,Feature,INIT-004,Completed,7,0,0,TM006,Frank Wilson,High,0,2025-06-27,0.0
+STORY-0093,4,1,1,Feature,INIT-002,Completed,8,0,0,TM005,Emma Rodriguez,High,0,2025-06-26,0.0
+STORY-0094,4,1,1,Bug,INIT-019,Completed,1,0,0,TM006,Frank Wilson,High,2,2025-06-25,0.0
+STORY-0095,4,1,1,Feature,INIT-019,Completed,5,0,0,TM002,Bob Martinez,High,0,2025-06-24,0.0
+STORY-0096,4,3,3,Spike,INIT-002,Completed,2,0,0,TM003,Carol Johnson,High,0,2025-06-26,0.0
+STORY-0097,4,8,8,Feature,INIT-003,Descoped,2,1,3,TM005,Emma Rodriguez,Medium,0,2025-06-26,0.0
+STORY-0098,4,2,2,Feature,INIT-004,Completed,6,1,3,TM006,Frank Wilson,Medium,0,2025-06-26,0.0
+STORY-0099,4,1,1,Feature,INIT-004,Completed,2,0,0,TM008,Henry Brown,Medium,0,2025-06-25,0.0
+STORY-0100,4,8,8,Spike,INIT-001,Incomplete,3,0,0,TM004,David Kim,Medium,0,2025-06-25,0.0
+STORY-0101,4,3,3,Bug,INIT-001,Completed,5,0,0,TM003,Carol Johnson,Medium,3,2025-06-26,0.0
+STORY-0102,4,2,2,Feature,INIT-001,Incomplete,13,0,2,TM001,Alice Chen,Medium,0,2025-06-24,0.0
+STORY-0103,4,2,2,Bug,INIT-022,Carried Over,6,1,3,TM006,Frank Wilson,Medium,0,2025-06-24,0.0
+STORY-0104,4,5,5,Feature,INIT-001,Descoped,9,1,3,TM001,Alice Chen,Medium,0,2025-06-27,0.0
+STORY-0105,4,5,5,Feature,INIT-002,Incomplete,2,0,2,TM003,Carol Johnson,Medium,0,2025-06-26,0.0
+STORY-0106,4,8,8,Feature,INIT-022,Incomplete,10,1,3,TM007,Grace Lee,Medium,0,2025-06-24,0.0
+STORY-0107,4,8,8,Bug,INIT-004,Incomplete,7,1,3,TM007,Grace Lee,Medium,0,2025-06-24,0.0
+STORY-0108,4,3,3,Feature,INIT-005,Incomplete,11,1,0,TM002,Bob Martinez,Low,1,2025-06-24,0.0
+STORY-0109,4,5,5,Feature,INIT-006,Descoped,1,1,0,TM007,Grace Lee,Low,0,2025-06-27,0.0
+STORY-0110,4,1,1,Spike,INIT-005,Completed,6,0,0,TM004,David Kim,Low,0,2025-06-27,0.0
+STORY-0111,4,2,2,Bug,INIT-006,Incomplete,2,1,1,TM007,Grace Lee,Low,1,2025-06-24,0.0
+STORY-0112,4,8,8,Technical Debt,INIT-005,Carried Over,9,2,2,TM006,Frank Wilson,Low,0,2025-06-25,0.0
+STORY-0113,4,2,2,Feature,INIT-015,Carried Over,5,0,5,TM004,David Kim,Low,0,2025-06-27,0.0
+STORY-0114,4,3,3,Feature,INIT-005,Descoped,10,0,0,TM003,Carol Johnson,Low,0,2025-06-24,0.0
+STORY-0115,4,1,1,Feature,INIT-015,Incomplete,7,1,1,TM002,Bob Martinez,Low,0,2025-06-24,0.0
+STORY-0116,5,5,5,Feature,INIT-005,Completed,1,0,0,TM001,Alice Chen,High,0,2025-07-10,0.0
+STORY-0117,5,2,3,Bug,INIT-005,Completed,5,0,0,TM001,Alice Chen,High,0,2025-07-11,0.5
+STORY-0118,5,2,2,Feature,INIT-019,Completed,4,0,0,TM006,Frank Wilson,High,0,2025-07-08,0.0
+STORY-0119,5,5,5,Feature,INIT-002,Completed,6,0,0,TM007,Grace Lee,High,1,2025-07-11,0.0
+STORY-0120,5,3,3,Feature,INIT-001,Completed,6,0,0,TM008,Henry Brown,High,1,2025-07-10,0.0
+STORY-0121,5,1,1,Feature,INIT-002,Completed,4,0,0,TM007,Grace Lee,High,0,2025-07-11,0.0
+STORY-0122,5,3,2,Bug,INIT-004,Completed,6,0,0,TM002,Bob Martinez,High,0,2025-07-08,0.3333333333333333
+STORY-0123,5,8,4,Feature,INIT-006,Completed,6,0,0,TM003,Carol Johnson,High,0,2025-07-09,0.5
+STORY-0124,5,3,1,Feature,INIT-022,Completed,3,0,0,TM002,Bob Martinez,High,0,2025-07-11,0.6666666666666666
+STORY-0125,5,5,5,Bug,INIT-022,Completed,8,0,0,TM006,Frank Wilson,High,1,2025-07-10,0.0
+STORY-0126,5,2,1,Feature,INIT-015,Completed,8,0,0,TM005,Emma Rodriguez,High,0,2025-07-10,0.5
+STORY-0127,5,8,8,Feature,INIT-015,Incomplete,6,1,0,TM002,Bob Martinez,Medium,0,2025-07-11,0.0
+STORY-0128,5,5,5,Feature,INIT-001,Descoped,11,0,2,TM008,Henry Brown,Medium,0,2025-07-08,0.0
+STORY-0129,5,5,5,Feature,INIT-006,Incomplete,9,0,0,TM004,David Kim,Medium,1,2025-07-11,0.0
+STORY-0130,5,8,8,Feature,INIT-003,Incomplete,7,1,2,TM001,Alice Chen,Medium,1,2025-07-10,0.0
+STORY-0131,5,1,1,Feature,INIT-019,Completed,7,0,0,TM003,Carol Johnson,Medium,0,2025-07-09,0.0
+STORY-0132,5,3,3,Feature,INIT-013,Descoped,2,1,3,TM006,Frank Wilson,Medium,1,2025-07-08,0.0
+STORY-0133,5,5,5,Feature,INIT-001,Incomplete,4,1,3,TM004,David Kim,Medium,0,2025-07-09,0.0
+STORY-0134,5,2,2,Feature,INIT-002,Completed,9,0,0,TM001,Alice Chen,Medium,0,2025-07-09,0.0
+STORY-0135,5,8,8,Feature,INIT-003,Descoped,13,0,3,TM001,Alice Chen,Medium,0,2025-07-09,0.0
+STORY-0136,5,5,5,Feature,INIT-015,Incomplete,5,1,1,TM006,Frank Wilson,Medium,0,2025-07-11,0.0
+STORY-0137,5,5,5,Bug,INIT-013,Incomplete,3,0,1,TM005,Emma Rodriguez,Medium,0,2025-07-11,0.0
+STORY-0138,5,3,3,Feature,INIT-002,Descoped,14,0,2,TM002,Bob Martinez,Medium,1,2025-07-10,0.0
+STORY-0139,5,5,5,Technical Debt,INIT-003,Incomplete,4,1,2,TM001,Alice Chen,Medium,0,2025-07-11,0.0
+STORY-0140,5,8,8,Feature,INIT-013,Incomplete,4,0,2,TM002,Bob Martinez,Low,1,2025-07-10,0.0
+STORY-0141,5,2,2,Feature,INIT-005,Incomplete,12,0,3,TM008,Henry Brown,Low,0,2025-07-08,0.0
+STORY-0142,5,1,1,Feature,INIT-003,Descoped,10,1,0,TM005,Emma Rodriguez,Low,0,2025-07-08,0.0
+STORY-0143,5,1,1,Feature,INIT-022,Incomplete,14,1,0,TM004,David Kim,Low,1,2025-07-10,0.0
+STORY-0144,5,5,5,Feature,INIT-006,Incomplete,3,0,2,TM002,Bob Martinez,Low,2,2025-07-08,0.0
+STORY-0145,5,5,5,Technical Debt,INIT-001,Incomplete,5,0,2,TM002,Bob Martinez,Low,0,2025-07-08,0.0
+STORY-0146,5,8,8,Bug,INIT-006,Incomplete,9,1,1,TM008,Henry Brown,Low,3,2025-07-11,0.0
+STORY-0147,5,2,2,Bug,INIT-002,Incomplete,1,1,1,TM001,Alice Chen,Low,1,2025-07-08,0.0
+STORY-0148,5,3,3,Technical Debt,INIT-019,Descoped,8,1,0,TM004,David Kim,Low,0,2025-07-08,0.0
+STORY-0149,5,3,3,Feature,INIT-006,Incomplete,12,1,3,TM006,Frank Wilson,Low,2,2025-07-11,0.0
+STORY-0150,6,8,9,Feature,INIT-002,Completed,7,1,3,TM003,Carol Johnson,High,0,2025-07-24,0.125
+STORY-0151,6,1,1,Feature,INIT-005,Completed,5,0,0,TM007,Grace Lee,High,0,2025-07-25,0.0
+STORY-0152,6,3,2,Feature,INIT-006,Completed,10,0,0,TM005,Emma Rodriguez,High,0,2025-07-22,0.3333333333333333
+STORY-0153,6,1,1,Bug,INIT-013,Completed,6,0,0,TM003,Carol Johnson,High,2,2025-07-23,0.0
+STORY-0154,6,8,5,Bug,INIT-015,Completed,1,0,0,TM004,David Kim,High,1,2025-07-24,0.375
+STORY-0155,6,3,3,Feature,INIT-022,Completed,1,0,0,TM008,Henry Brown,High,2,2025-07-24,0.0
+STORY-0156,6,5,6,Bug,INIT-022,Completed,3,0,0,TM007,Grace Lee,High,0,2025-07-24,0.2
+STORY-0157,6,2,2,Spike,INIT-001,Completed,3,0,0,TM007,Grace Lee,High,2,2025-07-22,0.0
+STORY-0158,6,3,1,Bug,INIT-015,Completed,4,0,0,TM005,Emma Rodriguez,High,0,2025-07-25,0.6666666666666666
+STORY-0159,6,2,2,Feature,INIT-002,Completed,8,0,0,TM008,Henry Brown,Medium,3,2025-07-24,0.0
+STORY-0160,6,3,2,Bug,INIT-019,Completed,9,0,0,TM005,Emma Rodriguez,Medium,1,2025-07-23,0.3333333333333333
+STORY-0161,6,3,3,Feature,INIT-002,Completed,4,0,0,TM004,David Kim,Medium,1,2025-07-22,0.0
+STORY-0162,6,3,3,Feature,INIT-006,Descoped,3,0,0,TM005,Emma Rodriguez,Medium,0,2025-07-25,0.0
+STORY-0163,6,8,8,Feature,INIT-013,Incomplete,3,1,0,TM008,Henry Brown,Medium,0,2025-07-24,0.0
+STORY-0164,6,2,2,Technical Debt,INIT-019,Incomplete,13,0,3,TM001,Alice Chen,Medium,1,2025-07-23,0.0
+STORY-0165,6,3,3,Feature,INIT-006,Incomplete,6,1,0,TM005,Emma Rodriguez,Medium,0,2025-07-24,0.0
+STORY-0166,6,2,2,Feature,INIT-022,Descoped,11,0,1,TM003,Carol Johnson,Medium,0,2025-07-24,0.0
+STORY-0167,6,8,8,Feature,INIT-001,Carried Over,14,1,5,TM004,David Kim,Medium,1,2025-07-25,0.0
+STORY-0168,6,8,8,Feature,INIT-015,Descoped,5,1,3,TM004,David Kim,Medium,1,2025-07-25,0.0
+STORY-0169,6,3,3,Feature,INIT-001,Incomplete,8,1,1,TM006,Frank Wilson,Medium,0,2025-07-24,0.0
+STORY-0170,6,3,3,Bug,INIT-006,Incomplete,13,1,0,TM006,Frank Wilson,Medium,0,2025-07-22,0.0
+STORY-0171,6,3,3,Feature,INIT-003,Carried Over,9,1,4,TM007,Grace Lee,Low,0,2025-07-23,0.0
+STORY-0172,6,3,3,Technical Debt,INIT-006,Incomplete,8,1,3,TM005,Emma Rodriguez,Low,0,2025-07-22,0.0
+STORY-0173,6,5,5,Feature,INIT-004,Incomplete,1,0,2,TM008,Henry Brown,Low,0,2025-07-25,0.0
+STORY-0174,6,3,3,Feature,INIT-002,Incomplete,12,1,3,TM006,Frank Wilson,Low,0,2025-07-22,0.0
+STORY-0175,6,8,8,Feature,INIT-006,Incomplete,7,1,2,TM002,Bob Martinez,Low,0,2025-07-22,0.0
+STORY-0176,6,5,5,Feature,INIT-006,Incomplete,13,0,1,TM007,Grace Lee,Low,0,2025-07-22,0.0
+STORY-0177,6,1,1,Feature,INIT-006,Descoped,8,0,1,TM006,Frank Wilson,Low,2,2025-07-24,0.0
+STORY-0178,6,2,2,Feature,INIT-022,Incomplete,10,1,3,TM005,Emma Rodriguez,Low,0,2025-07-22,0.0
+STORY-0179,6,3,3,Feature,INIT-002,Descoped,5,0,3,TM005,Emma Rodriguez,Low,2,2025-07-23,0.0
+STORY-0180,7,8,6,Feature,INIT-020,Completed,7,0,0,TM004,David Kim,High,0,2025-08-05,0.25
+STORY-0181,7,2,1,Feature,INIT-006,Completed,7,0,0,TM004,David Kim,High,0,2025-08-08,0.5
+STORY-0182,7,1,1,Bug,INIT-019,Completed,4,0,0,TM008,Henry Brown,High,0,2025-08-07,0.0
+STORY-0183,7,2,1,Feature,INIT-019,Completed,6,0,0,TM005,Emma Rodriguez,High,0,2025-08-06,0.5
+STORY-0184,7,2,2,Feature,INIT-005,Completed,4,0,0,TM005,Emma Rodriguez,High,1,2025-08-06,0.0
+STORY-0185,7,5,4,Feature,INIT-006,Completed,9,0,0,TM005,Emma Rodriguez,High,0,2025-08-08,0.2
+STORY-0186,7,5,7,Bug,INIT-003,Completed,5,1,3,TM002,Bob Martinez,High,0,2025-08-08,0.4
+STORY-0187,7,3,2,Bug,INIT-004,Completed,4,0,0,TM005,Emma Rodriguez,High,2,2025-08-07,0.3333333333333333
+STORY-0188,7,2,1,Feature,INIT-020,Completed,4,0,0,TM004,David Kim,High,0,2025-08-05,0.5
+STORY-0189,7,1,1,Feature,INIT-015,Completed,2,0,0,TM003,Carol Johnson,Medium,0,2025-08-06,0.0
+STORY-0190,7,5,5,Feature,INIT-015,Completed,8,0,0,TM005,Emma Rodriguez,Medium,0,2025-08-05,0.0
+STORY-0191,7,1,1,Feature,INIT-004,Completed,9,0,0,TM001,Alice Chen,Medium,2,2025-08-06,0.0
+STORY-0192,7,5,6,Technical Debt,INIT-003,Completed,1,0,0,TM007,Grace Lee,Medium,1,2025-08-06,0.2
+STORY-0193,7,3,3,Technical Debt,INIT-001,Completed,5,0,0,TM002,Bob Martinez,Medium,2,2025-08-07,0.0
+STORY-0194,7,3,3,Feature,INIT-022,Incomplete,3,1,2,TM004,David Kim,Medium,1,2025-08-07,0.0
+STORY-0195,7,2,2,Bug,INIT-022,Incomplete,1,1,2,TM004,David Kim,Medium,0,2025-08-08,0.0
+STORY-0196,7,5,5,Feature,INIT-002,Incomplete,3,0,3,TM006,Frank Wilson,Medium,2,2025-08-05,0.0
+STORY-0197,7,3,3,Feature,INIT-015,Incomplete,5,0,2,TM006,Frank Wilson,Medium,0,2025-08-05,0.0
+STORY-0198,7,1,1,Feature,INIT-003,Descoped,12,1,0,TM005,Emma Rodriguez,Medium,0,2025-08-06,0.0
+STORY-0199,7,2,2,Spike,INIT-015,Descoped,10,1,3,TM008,Henry Brown,Low,1,2025-08-06,0.0
+STORY-0200,7,2,2,Feature,INIT-020,Incomplete,9,1,2,TM002,Bob Martinez,Low,2,2025-08-05,0.0
+STORY-0201,7,1,1,Bug,INIT-019,Descoped,3,0,2,TM008,Henry Brown,Low,0,2025-08-06,0.0
+STORY-0202,7,8,8,Feature,INIT-019,Incomplete,8,0,3,TM008,Henry Brown,Low,0,2025-08-08,0.0
+STORY-0203,7,3,3,Bug,INIT-013,Incomplete,12,0,0,TM001,Alice Chen,Low,0,2025-08-05,0.0
+STORY-0204,7,8,8,Spike,INIT-002,Incomplete,1,1,3,TM003,Carol Johnson,Low,1,2025-08-08,0.0
+STORY-0205,7,3,3,Spike,INIT-013,Incomplete,7,0,1,TM006,Frank Wilson,Low,0,2025-08-08,0.0
+STORY-0206,7,8,8,Feature,INIT-004,Incomplete,5,1,3,TM007,Grace Lee,Low,1,2025-08-06,0.0
+STORY-0207,8,2,2,Technical Debt,INIT-022,Completed,2,1,3,TM007,Grace Lee,High,0,2025-08-19,0.0
+STORY-0208,8,2,1,Feature,INIT-002,Completed,10,1,3,TM001,Alice Chen,High,0,2025-08-19,0.5
+STORY-0209,8,5,4,Feature,INIT-018,Completed,4,0,0,TM001,Alice Chen,High,0,2025-08-21,0.2
+STORY-0210,8,2,1,Bug,INIT-022,Completed,10,0,0,TM006,Frank Wilson,High,0,2025-08-20,0.5
+STORY-0211,8,8,7,Feature,INIT-005,Completed,5,1,3,TM003,Carol Johnson,High,0,2025-08-22,0.125
+STORY-0212,8,8,9,Feature,INIT-006,Completed,7,0,0,TM006,Frank Wilson,High,0,2025-08-22,0.125
+STORY-0213,8,2,1,Feature,INIT-003,Completed,9,0,0,TM004,David Kim,High,0,2025-08-20,0.5
+STORY-0214,8,5,4,Technical Debt,INIT-018,Completed,7,0,0,TM003,Carol Johnson,High,0,2025-08-21,0.2
+STORY-0215,8,2,1,Feature,INIT-002,Completed,8,0,0,TM002,Bob Martinez,High,0,2025-08-20,0.5
+STORY-0216,8,1,1,Feature,INIT-020,Completed,10,0,0,TM002,Bob Martinez,Medium,0,2025-08-20,0.0
+STORY-0217,8,5,4,Feature,INIT-006,Completed,5,0,0,TM001,Alice Chen,Medium,0,2025-08-20,0.2
+STORY-0218,8,1,1,Bug,INIT-023,Completed,8,0,0,TM004,David Kim,Medium,0,2025-08-20,0.0
+STORY-0219,8,8,8,Feature,INIT-005,Descoped,11,1,2,TM005,Emma Rodriguez,Medium,0,2025-08-22,0.0
+STORY-0220,8,5,5,Feature,INIT-022,Incomplete,4,1,2,TM007,Grace Lee,Medium,0,2025-08-20,0.0
+STORY-0221,8,2,2,Feature,INIT-018,Descoped,12,1,2,TM003,Carol Johnson,Medium,0,2025-08-20,0.0
+STORY-0222,8,5,5,Feature,INIT-004,Descoped,11,1,2,TM008,Henry Brown,Medium,2,2025-08-22,0.0
+STORY-0223,8,5,5,Feature,INIT-023,Incomplete,12,1,1,TM001,Alice Chen,Medium,0,2025-08-19,0.0
+STORY-0224,8,1,1,Bug,INIT-013,Completed,3,0,0,TM004,David Kim,Medium,0,2025-08-20,0.0
+STORY-0225,8,1,1,Feature,INIT-015,Descoped,11,1,3,TM001,Alice Chen,Medium,0,2025-08-22,0.0
+STORY-0226,8,1,1,Feature,INIT-022,Incomplete,1,1,1,TM002,Bob Martinez,Medium,2,2025-08-20,0.0
+STORY-0227,8,2,2,Feature,INIT-018,Incomplete,5,1,0,TM006,Frank Wilson,Medium,2,2025-08-22,0.0
+STORY-0228,8,8,8,Feature,INIT-022,Descoped,14,0,0,TM002,Bob Martinez,Low,0,2025-08-22,0.0
+STORY-0229,8,8,8,Feature,INIT-020,Carried Over,7,0,3,TM007,Grace Lee,Low,0,2025-08-21,0.0
+STORY-0230,8,8,8,Spike,INIT-002,Incomplete,4,0,3,TM005,Emma Rodriguez,Low,0,2025-08-19,0.0
+STORY-0231,8,3,3,Technical Debt,INIT-019,Incomplete,14,1,0,TM004,David Kim,Low,0,2025-08-22,0.0
+STORY-0232,8,1,1,Feature,INIT-019,Incomplete,11,1,3,TM003,Carol Johnson,Low,1,2025-08-19,0.0
+STORY-0233,8,8,8,Bug,INIT-006,Carried Over,11,0,0,TM006,Frank Wilson,Low,0,2025-08-22,0.0
+STORY-0234,8,3,3,Feature,INIT-005,Incomplete,8,0,2,TM007,Grace Lee,Low,0,2025-08-22,0.0
+STORY-0235,8,1,1,Bug,INIT-005,Descoped,2,0,2,TM003,Carol Johnson,Low,0,2025-08-20,0.0
+STORY-0236,9,1,1,Feature,INIT-005,Completed,8,0,0,TM005,Emma Rodriguez,High,0,2025-09-02,0.0
+STORY-0237,9,2,1,Feature,INIT-018,Completed,9,0,0,TM002,Bob Martinez,High,0,2025-09-04,0.5
+STORY-0238,9,8,12,Feature,INIT-019,Completed,6,0,0,TM001,Alice Chen,High,0,2025-09-05,0.5
+STORY-0239,9,1,1,Bug,INIT-018,Completed,4,0,0,TM003,Carol Johnson,High,0,2025-09-03,0.0
+STORY-0240,9,2,2,Feature,INIT-005,Completed,8,0,0,TM003,Carol Johnson,High,0,2025-09-05,0.0
+STORY-0241,9,3,2,Feature,INIT-002,Completed,6,0,0,TM004,David Kim,High,1,2025-09-05,0.3333333333333333
+STORY-0242,9,8,7,Feature,INIT-015,Completed,2,0,0,TM001,Alice Chen,High,2,2025-09-04,0.125
+STORY-0243,9,8,8,Feature,INIT-006,Completed,8,0,0,TM003,Carol Johnson,High,0,2025-09-03,0.0
+STORY-0244,9,5,3,Feature,INIT-013,Completed,6,0,0,TM008,Henry Brown,Medium,2,2025-09-03,0.4
+STORY-0245,9,3,2,Feature,INIT-023,Completed,7,0,0,TM004,David Kim,Medium,0,2025-09-03,0.3333333333333333
+STORY-0246,9,8,8,Feature,INIT-022,Descoped,4,1,2,TM002,Bob Martinez,Medium,1,2025-09-05,0.0
+STORY-0247,9,5,5,Feature,INIT-005,Descoped,3,1,3,TM002,Bob Martinez,Medium,0,2025-09-05,0.0
+STORY-0248,9,8,8,Feature,INIT-018,Descoped,7,0,2,TM002,Bob Martinez,Medium,0,2025-09-03,0.0
+STORY-0249,9,3,3,Feature,INIT-019,Carried Over,11,1,3,TM002,Bob Martinez,Medium,0,2025-09-04,0.0
+STORY-0250,9,2,2,Feature,INIT-018,Descoped,10,0,3,TM006,Frank Wilson,Medium,0,2025-09-03,0.0
+STORY-0251,9,3,3,Spike,INIT-015,Carried Over,11,0,0,TM003,Carol Johnson,Medium,0,2025-09-04,0.0
+STORY-0252,9,5,5,Bug,INIT-018,Incomplete,2,1,3,TM006,Frank Wilson,Medium,0,2025-09-02,0.0
+STORY-0253,9,1,1,Feature,INIT-006,Descoped,13,0,1,TM003,Carol Johnson,Medium,0,2025-09-04,0.0
+STORY-0254,9,8,8,Feature,INIT-015,Incomplete,11,0,1,TM007,Grace Lee,Medium,0,2025-09-03,0.0
+STORY-0255,9,5,5,Feature,INIT-013,Carried Over,8,0,2,TM002,Bob Martinez,Low,0,2025-09-03,0.0
+STORY-0256,9,3,3,Feature,INIT-015,Carried Over,12,2,5,TM006,Frank Wilson,Low,0,2025-09-05,0.0
+STORY-0257,9,8,8,Feature,INIT-006,Descoped,3,1,0,TM003,Carol Johnson,Low,0,2025-09-03,0.0
+STORY-0258,9,3,3,Feature,INIT-006,Descoped,7,1,1,TM007,Grace Lee,Low,0,2025-09-05,0.0
+STORY-0259,9,8,8,Feature,INIT-020,Incomplete,9,0,3,TM005,Emma Rodriguez,Low,0,2025-09-04,0.0
+STORY-0260,9,5,5,Feature,INIT-006,Incomplete,3,0,3,TM008,Henry Brown,Low,0,2025-09-05,0.0
+STORY-0261,9,5,5,Bug,INIT-015,Incomplete,10,0,1,TM005,Emma Rodriguez,Low,0,2025-09-03,0.0
+STORY-0262,10,8,6,Bug,INIT-022,Completed,8,0,0,TM002,Bob Martinez,High,0,2025-09-18,0.25
+STORY-0263,10,8,7,Bug,INIT-006,Completed,9,0,0,TM001,Alice Chen,High,1,2025-09-19,0.125
+STORY-0264,10,8,9,Feature,INIT-010,Completed,2,0,0,TM004,David Kim,High,0,2025-09-16,0.125
+STORY-0265,10,5,5,Feature,INIT-023,Completed,2,0,0,TM002,Bob Martinez,High,1,2025-09-17,0.0
+STORY-0266,10,2,1,Bug,INIT-018,Completed,6,0,0,TM007,Grace Lee,High,0,2025-09-17,0.5
+STORY-0267,10,2,1,Bug,INIT-022,Completed,1,0,0,TM005,Emma Rodriguez,High,0,2025-09-17,0.5
+STORY-0268,10,3,3,Spike,INIT-005,Completed,5,0,0,TM002,Bob Martinez,High,0,2025-09-19,0.0
+STORY-0269,10,1,1,Spike,INIT-023,Completed,3,0,0,TM003,Carol Johnson,High,0,2025-09-18,0.0
+STORY-0270,10,2,2,Bug,INIT-019,Completed,7,0,0,TM005,Emma Rodriguez,High,0,2025-09-19,0.0
+STORY-0271,10,5,6,Feature,INIT-022,Completed,2,0,0,TM005,Emma Rodriguez,High,0,2025-09-18,0.2
+STORY-0272,10,5,5,Spike,INIT-006,Descoped,2,1,2,TM002,Bob Martinez,Medium,1,2025-09-19,0.0
+STORY-0273,10,2,2,Spike,INIT-023,Incomplete,6,1,2,TM003,Carol Johnson,Medium,0,2025-09-19,0.0
+STORY-0274,10,3,3,Technical Debt,INIT-022,Carried Over,6,2,3,TM001,Alice Chen,Medium,0,2025-09-17,0.0
+STORY-0275,10,5,5,Feature,INIT-010,Descoped,3,1,1,TM005,Emma Rodriguez,Medium,0,2025-09-18,0.0
+STORY-0276,10,3,3,Feature,INIT-019,Incomplete,1,1,2,TM004,David Kim,Medium,0,2025-09-16,0.0
+STORY-0277,10,1,1,Feature,INIT-013,Completed,2,0,0,TM004,David Kim,Medium,0,2025-09-19,0.0
+STORY-0278,10,1,1,Feature,INIT-006,Incomplete,12,0,3,TM002,Bob Martinez,Medium,0,2025-09-16,0.0
+STORY-0279,10,1,1,Feature,INIT-006,Incomplete,7,0,1,TM002,Bob Martinez,Medium,0,2025-09-16,0.0
+STORY-0280,10,8,8,Feature,INIT-013,Incomplete,11,0,3,TM008,Henry Brown,Medium,1,2025-09-16,0.0
+STORY-0281,10,1,1,Feature,INIT-002,Incomplete,6,1,2,TM003,Carol Johnson,Medium,0,2025-09-16,0.0
+STORY-0282,10,2,2,Feature,INIT-018,Incomplete,13,0,2,TM004,David Kim,Medium,0,2025-09-17,0.0
+STORY-0283,10,5,5,Feature,INIT-001,Incomplete,8,1,0,TM004,David Kim,Medium,0,2025-09-16,0.0
+STORY-0284,10,8,8,Technical Debt,INIT-001,Incomplete,3,1,3,TM006,Frank Wilson,Medium,0,2025-09-17,0.0
+STORY-0285,10,5,5,Spike,INIT-022,Carried Over,14,0,0,TM005,Emma Rodriguez,Low,0,2025-09-16,0.0
+STORY-0286,10,5,5,Feature,INIT-019,Incomplete,7,1,0,TM003,Carol Johnson,Low,0,2025-09-18,0.0
+STORY-0287,10,1,1,Feature,INIT-004,Incomplete,9,1,3,TM002,Bob Martinez,Low,0,2025-09-19,0.0
+STORY-0288,10,2,2,Feature,INIT-002,Incomplete,8,0,2,TM003,Carol Johnson,Low,0,2025-09-17,0.0
+STORY-0289,10,1,1,Feature,INIT-006,Descoped,5,0,2,TM003,Carol Johnson,Low,1,2025-09-18,0.0
+STORY-0290,10,1,1,Bug,INIT-001,Incomplete,5,0,2,TM002,Bob Martinez,Low,0,2025-09-18,0.0
+STORY-0291,10,1,1,Feature,INIT-018,Incomplete,5,0,0,TM004,David Kim,Low,1,2025-09-16,0.0
+STORY-0292,10,1,1,Technical Debt,INIT-001,Incomplete,6,1,1,TM003,Carol Johnson,Low,2,2025-09-16,0.0
+STORY-0293,10,8,8,Bug,INIT-020,Incomplete,4,1,1,TM007,Grace Lee,Low,2,2025-09-18,0.0
+STORY-0294,11,3,2,Feature,INIT-019,Completed,1,0,0,TM001,Alice Chen,High,2,2025-09-30,0.3333333333333333
+STORY-0295,11,5,5,Technical Debt,INIT-022,Completed,5,0,0,TM008,Henry Brown,High,0,2025-10-01,0.0
+STORY-0296,11,3,2,Feature,INIT-005,Completed,10,0,0,TM006,Frank Wilson,High,0,2025-10-03,0.3333333333333333
+STORY-0297,11,2,1,Bug,INIT-015,Completed,4,0,0,TM007,Grace Lee,High,0,2025-10-02,0.5
+STORY-0298,11,1,1,Spike,INIT-001,Completed,7,0,0,TM005,Emma Rodriguez,High,0,2025-10-01,0.0
+STORY-0299,11,5,5,Feature,INIT-001,Completed,3,0,0,TM002,Bob Martinez,High,0,2025-10-01,0.0
+STORY-0300,11,8,7,Feature,INIT-028,Completed,6,0,0,TM002,Bob Martinez,High,0,2025-10-01,0.125
+STORY-0301,11,5,5,Feature,INIT-018,Completed,1,0,0,TM003,Carol Johnson,High,0,2025-10-02,0.0
+STORY-0302,11,3,3,Technical Debt,INIT-010,Completed,6,0,0,TM005,Emma Rodriguez,High,0,2025-10-01,0.0
+STORY-0303,11,2,2,Bug,INIT-018,Completed,2,0,0,TM003,Carol Johnson,High,0,2025-10-02,0.0
+STORY-0304,11,5,5,Feature,INIT-006,Completed,4,0,0,TM008,Henry Brown,High,0,2025-09-30,0.0
+STORY-0305,11,1,1,Feature,INIT-019,Completed,5,0,0,TM001,Alice Chen,Medium,0,2025-10-02,0.0
+STORY-0306,11,2,2,Feature,INIT-004,Completed,6,0,0,TM001,Alice Chen,Medium,0,2025-10-02,0.0
+STORY-0307,11,2,2,Feature,INIT-010,Descoped,12,0,0,TM008,Henry Brown,Medium,0,2025-10-01,0.0
+STORY-0308,11,1,1,Feature,INIT-023,Incomplete,3,0,3,TM006,Frank Wilson,Medium,0,2025-09-30,0.0
+STORY-0309,11,8,8,Feature,INIT-028,Incomplete,2,0,3,TM003,Carol Johnson,Medium,0,2025-10-02,0.0
+STORY-0310,11,1,1,Feature,INIT-013,Carried Over,14,1,5,TM007,Grace Lee,Medium,0,2025-10-03,0.0
+STORY-0311,11,5,5,Feature,INIT-004,Incomplete,5,1,1,TM001,Alice Chen,Medium,0,2025-10-01,0.0
+STORY-0312,11,3,3,Feature,INIT-028,Incomplete,2,1,3,TM003,Carol Johnson,Medium,0,2025-10-01,0.0
+STORY-0313,11,8,8,Bug,INIT-010,Incomplete,8,1,2,TM006,Frank Wilson,Medium,0,2025-10-01,0.0
+STORY-0314,11,1,1,Feature,INIT-004,Carried Over,9,0,3,TM006,Frank Wilson,Medium,1,2025-10-01,0.0
+STORY-0315,11,2,2,Feature,INIT-019,Descoped,14,0,1,TM007,Grace Lee,Medium,0,2025-10-01,0.0
+STORY-0316,11,2,2,Feature,INIT-006,Descoped,6,0,2,TM003,Carol Johnson,Medium,0,2025-10-01,0.0
+STORY-0317,11,5,5,Feature,INIT-003,Incomplete,1,0,1,TM001,Alice Chen,Medium,0,2025-09-30,0.0
+STORY-0318,11,3,3,Technical Debt,INIT-004,Incomplete,12,0,2,TM001,Alice Chen,Low,0,2025-10-01,0.0
+STORY-0319,11,1,1,Bug,INIT-023,Incomplete,6,1,0,TM006,Frank Wilson,Low,0,2025-10-01,0.0
+STORY-0320,11,2,2,Bug,INIT-010,Incomplete,11,1,1,TM006,Frank Wilson,Low,0,2025-10-01,0.0
+STORY-0321,11,5,5,Feature,INIT-020,Incomplete,12,0,3,TM001,Alice Chen,Low,0,2025-10-02,0.0
+STORY-0322,11,8,8,Feature,INIT-018,Carried Over,12,0,2,TM002,Bob Martinez,Low,0,2025-10-02,0.0
+STORY-0323,11,2,2,Feature,INIT-002,Descoped,11,1,3,TM001,Alice Chen,Low,0,2025-10-01,0.0
+STORY-0324,11,1,1,Feature,INIT-022,Carried Over,5,0,3,TM008,Henry Brown,Low,1,2025-10-01,0.0
+STORY-0325,11,5,5,Feature,INIT-010,Incomplete,2,1,1,TM003,Carol Johnson,Low,0,2025-09-30,0.0
+STORY-0326,11,3,3,Feature,INIT-005,Incomplete,6,0,3,TM003,Carol Johnson,Low,1,2025-09-30,0.0
+STORY-0327,11,3,3,Feature,INIT-018,Descoped,1,1,1,TM007,Grace Lee,Low,0,2025-09-30,0.0
+STORY-0328,12,5,4,Feature,INIT-020,Completed,9,0,0,TM005,Emma Rodriguez,High,0,2025-10-14,0.2
+STORY-0329,12,1,1,Feature,INIT-015,Completed,8,0,0,TM006,Frank Wilson,High,0,2025-10-14,0.0
+STORY-0330,12,3,3,Bug,INIT-019,Completed,10,0,0,TM002,Bob Martinez,High,0,2025-10-15,0.0
+STORY-0331,12,3,3,Spike,INIT-013,Completed,2,0,0,TM007,Grace Lee,High,0,2025-10-16,0.0
+STORY-0332,12,1,1,Feature,INIT-010,Completed,3,0,0,TM007,Grace Lee,High,0,2025-10-17,0.0
+STORY-0333,12,1,1,Feature,INIT-013,Completed,5,0,0,TM005,Emma Rodriguez,High,0,2025-10-15,0.0
+STORY-0334,12,1,1,Feature,INIT-006,Completed,9,0,0,TM004,David Kim,High,0,2025-10-17,0.0
+STORY-0335,12,8,8,Feature,INIT-015,Completed,8,0,0,TM004,David Kim,High,0,2025-10-14,0.0
+STORY-0336,12,5,5,Technical Debt,INIT-020,Completed,1,0,0,TM003,Carol Johnson,High,0,2025-10-17,0.0
+STORY-0337,12,2,2,Technical Debt,INIT-003,Completed,4,0,0,TM003,Carol Johnson,Medium,0,2025-10-14,0.0
+STORY-0338,12,5,5,Feature,INIT-023,Completed,3,0,0,TM005,Emma Rodriguez,Medium,0,2025-10-14,0.0
+STORY-0339,12,1,1,Feature,INIT-010,Completed,9,0,0,TM005,Emma Rodriguez,Medium,0,2025-10-14,0.0
+STORY-0340,12,8,8,Feature,INIT-022,Completed,7,0,0,TM003,Carol Johnson,Medium,0,2025-10-14,0.0
+STORY-0341,12,1,1,Feature,INIT-002,Completed,5,0,0,TM006,Frank Wilson,Medium,1,2025-10-16,0.0
+STORY-0342,12,5,5,Feature,INIT-018,Incomplete,3,1,3,TM003,Carol Johnson,Medium,0,2025-10-17,0.0
+STORY-0343,12,1,1,Feature,INIT-028,Completed,6,0,0,TM001,Alice Chen,Medium,1,2025-10-16,0.0
+STORY-0344,12,3,3,Feature,INIT-023,Completed,5,0,0,TM008,Henry Brown,Medium,1,2025-10-14,0.0
+STORY-0345,12,2,2,Feature,INIT-020,Incomplete,5,1,0,TM004,David Kim,Medium,0,2025-10-17,0.0
+STORY-0346,12,5,5,Bug,INIT-023,Incomplete,9,0,0,TM005,Emma Rodriguez,Medium,1,2025-10-17,0.0
+STORY-0347,12,2,2,Bug,INIT-015,Incomplete,3,0,1,TM001,Alice Chen,Medium,0,2025-10-17,0.0
+STORY-0348,12,1,1,Technical Debt,INIT-020,Incomplete,14,1,3,TM002,Bob Martinez,Low,0,2025-10-15,0.0
+STORY-0349,12,3,3,Feature,INIT-013,Incomplete,10,1,2,TM003,Carol Johnson,Low,1,2025-10-16,0.0
+STORY-0350,12,1,1,Feature,INIT-010,Carried Over,14,0,1,TM004,David Kim,Low,0,2025-10-16,0.0
+STORY-0351,12,5,5,Feature,INIT-023,Descoped,1,1,1,TM003,Carol Johnson,Low,0,2025-10-14,0.0
+STORY-0352,12,2,2,Feature,INIT-022,Descoped,12,1,3,TM007,Grace Lee,Low,1,2025-10-17,0.0
+STORY-0353,12,3,3,Feature,INIT-005,Descoped,7,0,0,TM006,Frank Wilson,Low,0,2025-10-16,0.0
+STORY-0354,12,3,3,Feature,INIT-013,Carried Over,9,2,2,TM005,Emma Rodriguez,Low,0,2025-10-16,0.0
+STORY-0355,12,2,2,Feature,INIT-022,Incomplete,13,1,2,TM003,Carol Johnson,Low,1,2025-10-17,0.0

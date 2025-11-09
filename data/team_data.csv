@@ -1,0 +1,9 @@
+member_id,name,role,avg_capacity_per_sprint,specialization
+TM001,Alice Chen,Frontend Dev,41,"React, TypeScript, UI/UX"
+TM002,Bob Martinez,Backend Dev,38,"Python, APIs, Database"
+TM003,Carol Johnson,QA Engineer,45,"Testing, Automation, CI/CD"
+TM004,David Kim,Designer,42,"UI Design, Figma, User Research"
+TM005,Emma Rodriguez,Backend Dev,39,"Python, APIs, Database"
+TM006,Frank Wilson,Frontend Dev,41,"React, TypeScript, UI/UX"
+TM007,Grace Lee,Tech Lead,44,"Architecture, Code Review, Mentoring"
+TM008,Henry Brown,Full Stack Dev,37,"React, Python, DevOps"
