@@ -57,38 +57,304 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS
+# Custom CSS - Enhanced Visual Design
 st.markdown("""
 <style>
-    .metric-card {
-        background-color: #f0f2f6;
-        padding: 20px;
-        border-radius: 10px;
-        border-left: 5px solid #2E86AB;
+    /* Import Google Font */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    /* Global Styles */
+    * {
+        font-family: 'Inter', sans-serif !important;
     }
+
+    /* Main Title Styling */
+    h1 {
+        color: #1e3a8a !important;
+        font-weight: 700 !important;
+        font-size: 2.5rem !important;
+        margin-bottom: 0.5rem !important;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    /* Section Headers */
+    h2 {
+        color: #2563eb !important;
+        font-weight: 600 !important;
+        border-bottom: 3px solid #3b82f6;
+        padding-bottom: 12px !important;
+        margin-top: 2rem !important;
+        font-size: 1.8rem !important;
+    }
+
+    h3 {
+        color: #374151 !important;
+        font-weight: 600 !important;
+        font-size: 1.3rem !important;
+    }
+
+    /* Enhanced Metric Cards */
+    .big-metric-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        text-align: center;
+        color: white;
+        margin: 10px 0;
+        transition: transform 0.3s ease;
+    }
+
+    .big-metric-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    }
+
+    .big-metric-number {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin: 10px 0;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .big-metric-label {
+        font-size: 1.1rem;
+        opacity: 0.95;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* Success Card (Green) */
+    .metric-card {
+        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        padding: 25px;
+        border-radius: 16px;
+        border-left: 6px solid #2E86AB;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        margin: 15px 0;
+        transition: all 0.3s ease;
+    }
+
+    .metric-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .metric-card h3 {
+        color: #1e40af !important;
+        margin-bottom: 10px !important;
+        font-size: 1.2rem !important;
+    }
+
+    .metric-card p {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        margin: 5px 0;
+    }
+
+    .metric-card b {
+        color: #1e3a8a;
+        font-size: 1.3rem;
+    }
+
     .success-card {
+        background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
         border-left-color: #06A77D;
     }
-    .warning-card {
-        border-left-color: #f39c12;
+
+    .success-card h3 {
+        color: #065f46 !important;
     }
+
+    .success-card b {
+        color: #047857;
+    }
+
+    .warning-card {
+        background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+        border-left-color: #f59e0b;
+    }
+
+    .warning-card h3 {
+        color: #92400e !important;
+    }
+
+    .warning-card b {
+        color: #b45309;
+    }
+
     .danger-card {
+        background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
         border-left-color: #e74c3c;
     }
+
+    .danger-card h3 {
+        color: #991b1b !important;
+    }
+
+    .danger-card b {
+        color: #dc2626;
+    }
+
+    /* Insight Boxes */
+    .insight-box {
+        background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+        padding: 25px;
+        border-radius: 16px;
+        border-left: 6px solid #9333ea;
+        box-shadow: 0 4px 15px rgba(147,51,234,0.2);
+        margin: 20px 0;
+    }
+
+    .insight-box h3 {
+        color: #6b21a8 !important;
+        margin-bottom: 12px !important;
+    }
+
+    /* Recommendations */
     .recommendation {
-        background-color: #e8f4f8;
-        padding: 15px;
-        border-radius: 8px;
+        background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+        padding: 20px 25px;
+        border-radius: 12px;
+        margin: 15px 0;
+        border-left: 5px solid #2563eb;
+        box-shadow: 0 4px 12px rgba(37,99,235,0.15);
+        transition: all 0.3s ease;
+    }
+
+    .recommendation:hover {
+        transform: translateX(5px);
+        box-shadow: 0 6px 20px rgba(37,99,235,0.25);
+    }
+
+    .recommendation h4 {
+        color: #1e40af !important;
+        margin-bottom: 8px !important;
+        font-size: 1.15rem !important;
+    }
+
+    /* Stats Box */
+    .stats-box {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        text-align: center;
         margin: 10px 0;
-        border-left: 4px solid #2E86AB;
+        border-top: 4px solid #3b82f6;
     }
-    h1 {
-        color: #2E86AB;
+
+    .stats-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #1e3a8a;
+        margin: 10px 0;
     }
-    h2 {
-        color: #2E86AB;
-        border-bottom: 2px solid #e0e0e0;
-        padding-bottom: 10px;
+
+    .stats-label {
+        font-size: 0.9rem;
+        color: #6b7280;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-weight: 600;
+    }
+
+    /* Alert Boxes */
+    .alert-success {
+        background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+        border-left: 5px solid #10b981;
+        padding: 15px 20px;
+        border-radius: 10px;
+        margin: 10px 0;
+        font-weight: 500;
+        color: #065f46;
+    }
+
+    .alert-warning {
+        background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+        border-left: 5px solid #f59e0b;
+        padding: 15px 20px;
+        border-radius: 10px;
+        margin: 10px 0;
+        font-weight: 500;
+        color: #92400e;
+    }
+
+    .alert-danger {
+        background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+        border-left: 5px solid #ef4444;
+        padding: 15px 20px;
+        border-radius: 10px;
+        margin: 10px 0;
+        font-weight: 500;
+        color: #991b1b;
+    }
+
+    /* Streamlit Metric Enhancement */
+    [data-testid="stMetricValue"] {
+        font-size: 2.5rem !important;
+        font-weight: 700 !important;
+        color: #1e3a8a !important;
+    }
+
+    [data-testid="stMetricDelta"] {
+        font-size: 1.1rem !important;
+        font-weight: 600 !important;
+    }
+
+    /* Sidebar Styling */
+    [data-testid="stSidebar"] {
+        background: linear-gradient(180deg, #1e3a8a 0%, #3b82f6 100%);
+    }
+
+    [data-testid="stSidebar"] .css-1d391kg {
+        color: white !important;
+    }
+
+    /* Divider */
+    hr {
+        margin: 30px 0;
+        border: none;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+    }
+
+    /* Page Badge */
+    .page-badge {
+        display: inline-block;
+        background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+        color: white;
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+        box-shadow: 0 4px 10px rgba(139,92,246,0.3);
+    }
+
+    /* Table Styling */
+    [data-testid="stDataFrame"] {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Button Enhancements */
+    .stButton>button {
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 12px 24px;
+        font-weight: 600;
+        box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+        transition: all 0.3s ease;
+    }
+
+    .stButton>button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(37,99,235,0.4);
     }
 </style>
 """, unsafe_allow_html=True)
@@ -160,9 +426,10 @@ current_sprint_num = int(current_sprint['sprint_number'])
 # PAGE 1: EXECUTIVE SUMMARY
 # ============================================================================
 if page == "🎯 Executive Summary":
+    st.markdown('<div class="page-badge">📊 EXECUTIVE DASHBOARD</div>', unsafe_allow_html=True)
     st.title("🎯 Executive Summary")
-    st.markdown("**High-level overview of team performance and portfolio health**")
-    st.markdown("---")
+    st.markdown("### 📌 Key Performance Indicators at a Glance")
+    st.markdown("")
 
     # Top KPI Cards
     col1, col2, col3, col4, col5 = st.columns(5)
@@ -200,6 +467,34 @@ if page == "🎯 Executive Summary":
     with col5:
         st.metric("High-Risk Initiatives", high_risk_count,
                  delta=None, delta_color="inverse")
+
+    # Calculate velocity change for alert
+    velocity_change = ((sprints_df.tail(3)['velocity'].mean() - sprints_df.head(3)['velocity'].mean()) /
+                      sprints_df.head(3)['velocity'].mean() * 100)
+
+    # Overall Status Alert
+    st.markdown("")
+    if health['health_score'] >= 80:
+        st.markdown(f"""
+        <div class="alert-success">
+            ✅ <b>EXCELLENT HEALTH</b> - Team is performing at peak efficiency with {health['health_score']:.0f}/100 health score.
+            Velocity is {velocity_change:.0f}% higher than 3 months ago. Keep up the momentum!
+        </div>
+        """, unsafe_allow_html=True)
+    elif health['health_score'] >= 60:
+        st.markdown(f"""
+        <div class="alert-warning">
+            ⚠️ <b>MONITOR CLOSELY</b> - Team health at {health['health_score']:.0f}/100.
+            Some concerns detected. Review bottlenecks and adjust sprint commitments.
+        </div>
+        """, unsafe_allow_html=True)
+    else:
+        st.markdown(f"""
+        <div class="alert-danger">
+            🚨 <b>INTERVENTION NEEDED</b> - Team health at {health['health_score']:.0f}/100 (below threshold).
+            {high_risk_count} initiatives at high risk. Immediate action required.
+        </div>
+        """, unsafe_allow_html=True)
 
     st.markdown("---")
 
@@ -313,9 +608,10 @@ if page == "🎯 Executive Summary":
 # PAGE 2: PORTFOLIO PRIORITIZATION
 # ============================================================================
 elif page == "📋 Portfolio Prioritization":
+    st.markdown('<div class="page-badge">🎯 PORTFOLIO MANAGEMENT</div>', unsafe_allow_html=True)
     st.title("📋 Portfolio Prioritization")
-    st.markdown("**Initiative intake, scoring, and backlog management**")
-    st.markdown("---")
+    st.markdown("### 🎪 Initiative Intake, Scoring & Backlog Management")
+    st.markdown("")
 
     # Filters
     col1, col2, col3 = st.columns(3)
@@ -466,9 +762,10 @@ elif page == "📋 Portfolio Prioritization":
 # PAGE 3: SPRINT DEEP DIVE
 # ============================================================================
 elif page == "🔍 Sprint Deep Dive":
+    st.markdown('<div class="page-badge">🔬 SPRINT ANALYSIS</div>', unsafe_allow_html=True)
     st.title("🔍 Sprint Deep Dive")
-    st.markdown("**Detailed sprint performance analysis**")
-    st.markdown("---")
+    st.markdown("### 📊 Detailed Sprint Performance & Bottleneck Analysis")
+    st.markdown("")
 
     # Sprint selector
     selected_sprint = st.selectbox(
@@ -594,9 +891,10 @@ elif page == "🔍 Sprint Deep Dive":
 # PAGE 4: TEAM PERFORMANCE
 # ============================================================================
 elif page == "👥 Team Performance":
+    st.markdown('<div class="page-badge">👥 TEAM ANALYTICS</div>', unsafe_allow_html=True)
     st.title("👥 Team Performance")
-    st.markdown("**Individual and team capacity analysis**")
-    st.markdown("---")
+    st.markdown("### 🏃‍♂️ Individual Contributions & Capacity Management")
+    st.markdown("")
 
     # Team velocity contribution
     st.subheader("📊 Individual Velocity Contribution")
@@ -719,9 +1017,10 @@ elif page == "👥 Team Performance":
 # PAGE 5: PREDICTIVE INSIGHTS & RISK SCORING
 # ============================================================================
 elif page == "🔮 Predictive Insights":
+    st.markdown('<div class="page-badge">🔮 PREDICTIVE ANALYTICS</div>', unsafe_allow_html=True)
     st.title("🔮 Predictive Insights & Risk Scoring")
-    st.markdown("**Forward-looking analytics and risk assessment**")
-    st.markdown("---")
+    st.markdown("### 🎲 Monte Carlo Simulations & Risk Assessment")
+    st.markdown("")
 
     # Sprint Health Score
     col1, col2 = st.columns([1, 2])
@@ -934,9 +1233,10 @@ elif page == "🔮 Predictive Insights":
 # PAGE 6: STRATEGIC TRENDS & ROI ANALYSIS
 # ============================================================================
 elif page == "📈 Strategic Trends":
+    st.markdown('<div class="page-badge">📈 STRATEGIC INSIGHTS</div>', unsafe_allow_html=True)
     st.title("📈 Strategic Trends & ROI Analysis")
-    st.markdown("**Long-term patterns and business impact**")
-    st.markdown("---")
+    st.markdown("### 💎 Long-term Performance & Business Impact")
+    st.markdown("")
 
     # Velocity Stability Curve
     st.subheader("📊 Velocity Stability Over Time")
