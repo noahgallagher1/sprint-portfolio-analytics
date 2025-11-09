@@ -77,11 +77,13 @@ st.markdown("""
 
     /* Tab styling */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 8px;
+        gap: 12px;
         background: linear-gradient(90deg, #2e7d9e 0%, #3b9fc7 100%);
         padding: 15px 20px;
         border-radius: 8px 8px 0 0;
         margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
     }
 
     .stTabs [data-baseweb="tab"] {
@@ -92,6 +94,8 @@ st.markdown("""
         font-weight: 600;
         font-size: 1rem;
         border: 2px solid transparent;
+        flex: 1;
+        text-align: center;
     }
 
     .stTabs [data-baseweb="tab"]:hover {
@@ -463,7 +467,7 @@ with main_col:
     """, unsafe_allow_html=True)
 
     # Create tabs
-    tab1, tab2, tab3 = st.tabs(["📊 Executive Summary", "🎯 Portfolio & Strategy", "⚡ Delivery & Performance"])
+    tab1, tab2, tab3, tab4 = st.tabs(["📊 Executive Summary", "🎯 Portfolio & Strategy", "⚡ Delivery & Performance", "📚 About the Data"])
 
     # ========================================================================
     # TAB 1: EXECUTIVE SUMMARY
@@ -913,6 +917,153 @@ with main_col:
         )
 
         st.plotly_chart(fig, use_container_width=True)
+
+    # ========================================================================
+    # TAB 4: ABOUT THE DATA
+    # ========================================================================
+    with tab4:
+        st.markdown('<div style="margin: 20px 0;"></div>', unsafe_allow_html=True)
+
+        st.markdown('<div class="section-title">Understanding the Sprint Data</div>', unsafe_allow_html=True)
+
+        st.markdown("""
+        This dashboard analyzes **6 months of Agile sprint data** from a simulated software development team.
+        The data represents realistic patterns and challenges faced by modern product teams.
+        """)
+
+        # Data Overview
+        col1, col2, col3 = st.columns(3)
+
+        with col1:
+            st.markdown(f"""
+            <div class="kpi-card">
+                <div class="kpi-value">{len(sprints_df)}</div>
+                <div class="kpi-label">Total Sprints</div>
+                <div class="kpi-sublabel">2-week iterations</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+        with col2:
+            st.markdown(f"""
+            <div class="kpi-card">
+                <div class="kpi-value">{len(stories_df)}</div>
+                <div class="kpi-label">User Stories</div>
+                <div class="kpi-sublabel">Across all sprints</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+        with col3:
+            st.markdown(f"""
+            <div class="kpi-card">
+                <div class="kpi-value">{len(initiatives_df)}</div>
+                <div class="kpi-label">Initiatives</div>
+                <div class="kpi-sublabel">Strategic projects</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+        st.markdown('<div style="margin: 25px 0 15px 0;"></div>', unsafe_allow_html=True)
+
+        # Sprint Details
+        st.markdown('<div class="section-title">Sprint Timeline & Context</div>', unsafe_allow_html=True)
+
+        # Create sprint summary table
+        sprint_summary = sprints_df[['sprint_number', 'committed_points', 'completed_points',
+                                     'completion_rate', 'velocity']].copy()
+        sprint_summary['completion_rate'] = (sprint_summary['completion_rate'] * 100).round(0).astype(int)
+        sprint_summary.columns = ['Sprint #', 'Committed', 'Completed', 'Completion %', 'Velocity']
+
+        st.markdown("""
+        **Sprint Overview Table** - Select any sprint number in the "Delivery & Performance" tab to analyze specific metrics.
+        """)
+
+        st.dataframe(sprint_summary, use_container_width=True, hide_index=True)
+
+        st.markdown('<div style="margin: 25px 0 15px 0;"></div>', unsafe_allow_html=True)
+
+        # Data Composition
+        col1, col2 = st.columns(2)
+
+        with col1:
+            st.markdown('<div class="section-title">Story Type Breakdown</div>', unsafe_allow_html=True)
+
+            story_types = stories_df['story_type'].value_counts().reset_index()
+            story_types.columns = ['Story Type', 'Count']
+
+            fig = px.pie(story_types, values='Count', names='Story Type',
+                        color='Story Type',
+                        color_discrete_map={
+                            'Feature': COLORS['primary'],
+                            'Bug': COLORS['danger'],
+                            'Technical Debt': COLORS['warning'],
+                            'Spike': COLORS['neutral']
+                        })
+            fig.update_layout(height=300)
+            st.plotly_chart(fig, use_container_width=True)
+
+        with col2:
+            st.markdown('<div class="section-title">Initiative Status</div>', unsafe_allow_html=True)
+
+            initiative_status = initiatives_df['status'].value_counts().reset_index()
+            initiative_status.columns = ['Status', 'Count']
+
+            fig = px.bar(initiative_status, x='Status', y='Count',
+                        color='Status',
+                        color_discrete_map={
+                            'Completed': COLORS['success'],
+                            'Active': COLORS['primary'],
+                            'Backlog': COLORS['neutral'],
+                            'Deprioritized': COLORS['danger']
+                        })
+            fig.update_layout(height=300, showlegend=False)
+            st.plotly_chart(fig, use_container_width=True)
+
+        st.markdown('<div style="margin: 25px 0 15px 0;"></div>', unsafe_allow_html=True)
+
+        # Key Definitions
+        st.markdown('<div class="section-title">Key Terms & Metrics</div>', unsafe_allow_html=True)
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+            st.markdown("""
+            **Sprint Metrics:**
+            - **Velocity**: Total story points completed in a sprint
+            - **Completion Rate**: % of committed points actually completed
+            - **Sprint Health Score**: Composite metric (0-100) combining velocity consistency, completion rate, and estimation accuracy
+            - **Cycle Time**: Days from story start to completion
+
+            **Team Metrics:**
+            - **Capacity Utilization**: % of team capacity used
+            - **Estimation Accuracy**: How close final points are to initial estimates
+            """)
+
+        with col2:
+            st.markdown("""
+            **Portfolio Metrics:**
+            - **Impact Score**: Business value rating (0-10)
+            - **Effort Score**: Complexity & time required (0-10)
+            - **Priority Score**: Calculated as (Impact × 10) / Effort
+            - **ROI Estimate**: Expected return on investment (High/Medium/Low)
+
+            **Risk Levels:**
+            - **High Risk**: Initiatives with scope/timeline concerns
+            - **Medium Risk**: Requires monitoring
+            - **Low Risk**: On track for delivery
+            """)
+
+        st.markdown('<div style="margin: 25px 0 15px 0;"></div>', unsafe_allow_html=True)
+
+        # How to Use This Dashboard
+        st.markdown('<div class="section-title">How to Use This Dashboard</div>', unsafe_allow_html=True)
+
+        st.markdown("""
+        1. **Executive Summary Tab**: Get a high-level overview of team performance, key trends, and strategic recommendations
+        2. **Portfolio & Strategy Tab**: Prioritize initiatives using the Impact/Effort matrix and identify Quick Wins vs Time Sinks
+        3. **Delivery & Performance Tab**: Deep dive into specific sprints, analyze team performance, and view predictive insights
+        4. **About the Data Tab** (this tab): Understand the data context and metric definitions
+
+        **Navigation Tip**: Use the sprint selector dropdown in the Delivery & Performance tab to analyze any of the {len(sprints_df)} sprints in detail.
+        """)
 
     # FOOTER (PERSISTENT ACROSS TABS)
     st.markdown("""

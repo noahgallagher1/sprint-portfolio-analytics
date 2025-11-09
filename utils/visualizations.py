@@ -74,13 +74,13 @@ def create_velocity_trend_chart(sprints_df):
         ))
 
     fig.update_layout(
-        title='Velocity Trend: Committed vs Completed Points',
         xaxis_title='Sprint Number',
         yaxis_title='Story Points',
         hovermode='x unified',
         height=400,
         showlegend=True,
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+        margin=dict(t=10)
     )
 
     return fig
@@ -192,22 +192,26 @@ def create_impact_effort_matrix(initiatives_df):
     fig.add_hline(y=5.5, line_dash="dot", line_color="gray", opacity=0.5)
     fig.add_vline(x=6.5, line_dash="dot", line_color="gray", opacity=0.5)
 
-    # Add quadrant labels
-    fig.add_annotation(x=8.5, y=3, text="Quick Wins<br>(DO FIRST)", showarrow=False,
-                      font=dict(size=10, color=COLORS['success']), opacity=0.6)
-    fig.add_annotation(x=8.5, y=8, text="Major Projects<br>(PLAN & RESOURCE)", showarrow=False,
-                      font=dict(size=10, color=COLORS['primary']), opacity=0.6)
-    fig.add_annotation(x=4, y=3, text="Fill-ins<br>(IF CAPACITY)", showarrow=False,
-                      font=dict(size=10, color=COLORS['neutral']), opacity=0.6)
-    fig.add_annotation(x=4, y=8, text="Time Sinks<br>(DEPRIORITIZE)", showarrow=False,
-                      font=dict(size=10, color=COLORS['danger']), opacity=0.6)
+    # Add quadrant labels - positioned in corners to avoid overlapping bubbles
+    fig.add_annotation(x=9.5, y=1.5, text="Quick Wins", showarrow=False,
+                      font=dict(size=11, color=COLORS['success'], family="Arial Black"),
+                      bgcolor="rgba(255,255,255,0.8)", bordercolor=COLORS['success'], borderwidth=2, borderpad=4)
+    fig.add_annotation(x=9.5, y=9.5, text="Major Projects", showarrow=False,
+                      font=dict(size=11, color=COLORS['primary'], family="Arial Black"),
+                      bgcolor="rgba(255,255,255,0.8)", bordercolor=COLORS['primary'], borderwidth=2, borderpad=4)
+    fig.add_annotation(x=1.5, y=1.5, text="Fill-ins", showarrow=False,
+                      font=dict(size=11, color=COLORS['neutral'], family="Arial Black"),
+                      bgcolor="rgba(255,255,255,0.8)", bordercolor=COLORS['neutral'], borderwidth=2, borderpad=4)
+    fig.add_annotation(x=1.5, y=9.5, text="Time Sinks", showarrow=False,
+                      font=dict(size=11, color=COLORS['danger'], family="Arial Black"),
+                      bgcolor="rgba(255,255,255,0.8)", bordercolor=COLORS['danger'], borderwidth=2, borderpad=4)
 
     fig.update_layout(
-        title='Initiative Prioritization: Impact vs Effort',
         xaxis=dict(range=[0, 11], title='Business Impact Score →'),
         yaxis=dict(range=[0, 11], title='Effort Required →'),
         height=500,
-        showlegend=True
+        showlegend=True,
+        margin=dict(t=10)
     )
 
     return fig
@@ -373,11 +377,11 @@ def create_story_type_stacked_area(story_type_by_sprint):
         ))
 
     fig.update_layout(
-        title='Story Type Mix Over Time',
         xaxis_title='Sprint Number',
         yaxis_title='Number of Stories',
         hovermode='x unified',
-        height=400
+        height=400,
+        margin=dict(t=20)
     )
 
     return fig
