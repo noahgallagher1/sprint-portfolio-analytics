@@ -308,7 +308,7 @@ st.markdown("""
         font-weight: 500;
     }
 
-    /* Contact button */
+    /* Contact buttons */
     .contact-button {
         display: inline-block;
         background: linear-gradient(135deg, #2e7d9e 0%, #3b9fc7 100%);
@@ -318,12 +318,33 @@ st.markdown("""
         text-decoration: none;
         font-weight: 600;
         font-size: 0.85rem;
-        margin-top: 12px;
+        margin: 12px 5px 0 5px;
         transition: transform 0.2s, box-shadow 0.2s;
         box-shadow: 0 2px 5px rgba(0,0,0,0.15);
     }
 
     .contact-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+        text-decoration: none;
+        color: white;
+    }
+
+    .linkedin-button {
+        display: inline-block;
+        background: linear-gradient(135deg, #0077B5 0%, #00A0DC 100%);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.85rem;
+        margin: 12px 5px 0 5px;
+        transition: transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+
+    .linkedin-button:hover {
         transform: translateY(-2px);
         box-shadow: 0 4px 8px rgba(0,0,0,0.25);
         text-decoration: none;
@@ -474,6 +495,9 @@ with sidebar_col:
         <br>
         <a href="mailto:dolly.u.dang@gmail.com?subject=Sprint%20Analytics%20Dashboard%20Inquiry" class="contact-button">
             📧 Contact Me
+        </a>
+        <a href="https://linkedin.com/in/dollydang" target="_blank" rel="noopener noreferrer" class="linkedin-button">
+            💼 LinkedIn
         </a>
     </div>
     """, unsafe_allow_html=True)
