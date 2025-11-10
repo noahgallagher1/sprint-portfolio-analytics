@@ -308,6 +308,28 @@ st.markdown("""
         font-weight: 500;
     }
 
+    /* Contact button */
+    .contact-button {
+        display: inline-block;
+        background: linear-gradient(135deg, #2e7d9e 0%, #3b9fc7 100%);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.85rem;
+        margin-top: 12px;
+        transition: transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+
+    .contact-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+        text-decoration: none;
+        color: white;
+    }
+
     /* Streamlit metric overrides */
     [data-testid="stMetricValue"] {
         font-size: 2rem !important;
@@ -447,9 +469,12 @@ with sidebar_col:
     st.markdown("""
     <div class="contact-info">
         <strong>Portfolio Project by: </strong><br>
-        <strong>Noah Gallagher</strong><br>
-        noah@datadrivenmgmt.com<br>
-        github.com/noahgallagher1
+        <strong>Dolly Dang</strong><br>
+        dolly.u.dang@gmail.com<br>
+        <br>
+        <a href="mailto:dolly.u.dang@gmail.com?subject=Sprint%20Analytics%20Dashboard%20Inquiry" class="contact-button">
+            📧 Contact Me
+        </a>
     </div>
     """, unsafe_allow_html=True)
 
