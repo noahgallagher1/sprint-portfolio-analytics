@@ -511,16 +511,16 @@ with sidebar_col:
     st.markdown("""
     <div class="contact-info">
         <strong>Portfolio Project by: </strong><br>
-        <strong>Dolly Dang</strong><br>
-        dolly.u.dang@gmail.com<br>
+        <strong>Noah Gallagher</strong><br>
+        noahgallagher1@gmail.com<br>
         <br>
-        <a href="mailto:dolly.u.dang@gmail.com?subject=Sprint%20Analytics%20Dashboard%20Inquiry" class="contact-button">
+        <a href="mailto:noahgallagher1@gmail.com?subject=Sprint%20Analytics%20Dashboard%20Inquiry" class="contact-button">
             📧 Contact Me
         </a>
-        <a href="https://linkedin.com/in/dollydang" target="_blank" rel="noopener noreferrer" class="linkedin-button">
+        <a href="https://www.linkedin.com/in/noahgallagher/" target="_blank" rel="noopener noreferrer" class="linkedin-button">
             💼 LinkedIn
         </a>
-        <a href="https://github.com/dollydang/print-portfolio-analytics" target="_blank" rel="noopener noreferrer" class="github-button">
+        <a href="https://github.com/noahgallagher1/sprint-portfolio-analytics" target="_blank" rel="noopener noreferrer" class="github-button">
             🐙 GitHub
         </a>
     </div>
@@ -1142,13 +1142,13 @@ with main_col:
     # FOOTER (PERSISTENT ACROSS TABS)
     st.markdown("""
     <div class="footer-bar">
-        DIRECTOR ALIGNMENT
+        DATA SCIENCE & ANALYTICS PORTFOLIO
     </div>
     """, unsafe_allow_html=True)
 
     st.markdown("""
     <div class="target-role">
-        <strong>Target Roles:</strong> Sr. PM (Revenue Ops) | Strategy & Operations<br>
-        <strong>Relevant Companies:</strong> B2B SaaS | Custom Ink | Google | Meta | LinkedIn
+        <strong>Target Roles:</strong> Data Scientist | Analytics Engineer | Business Intelligence Analyst<br>
+        <strong>Relevant Companies:</strong> Tech | SaaS | Finance | Healthcare | E-commerce
     </div>
     """, unsafe_allow_html=True)
