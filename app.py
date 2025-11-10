@@ -351,6 +351,27 @@ st.markdown("""
         color: white;
     }
 
+    .github-button {
+        display: inline-block;
+        background: linear-gradient(135deg, #24292e 0%, #444d56 100%);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.85rem;
+        margin: 12px 5px 0 5px;
+        transition: transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+
+    .github-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+        text-decoration: none;
+        color: white;
+    }
+
     /* Streamlit metric overrides */
     [data-testid="stMetricValue"] {
         font-size: 2rem !important;
@@ -498,6 +519,9 @@ with sidebar_col:
         </a>
         <a href="https://linkedin.com/in/dollydang" target="_blank" rel="noopener noreferrer" class="linkedin-button">
             💼 LinkedIn
+        </a>
+        <a href="https://github.com/dollydang/print-portfolio-analytics" target="_blank" rel="noopener noreferrer" class="github-button">
+            🐙 GitHub
         </a>
     </div>
     """, unsafe_allow_html=True)
