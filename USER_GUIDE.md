@@ -570,11 +570,23 @@ Reasoning: Simple feature, 13 story points, no dependencies
 ---
 
 #### 7. Priority Score
-**Definition:** Calculated metric that balances impact against effort
+**Definition:** Calculated metric that balances impact against effort, with strategic weights
 
 **How it's calculated:**
 ```
-Priority Score = (Impact Score × 10) / Effort Score
+Priority Score = (Impact Score / Effort Score) × Strategic Weight × ROI Multiplier
+
+Strategic Weights:
+- Revenue Growth: 1.5×
+- Customer Experience: 1.3×
+- Cost Reduction: 1.2×
+- Technical Excellence: 1.1×
+- Process Improvement: 1.0×
+
+ROI Multipliers:
+- High: 1.3×
+- Medium: 1.0×
+- Low: 0.7×
 ```
 
 **Example:**
@@ -582,14 +594,18 @@ Priority Score = (Impact Score × 10) / Effort Score
 Initiative A:
 - Impact: 8/10
 - Effort: 2/10
-Priority Score = (8 × 10) / 2 = 40
+- Strategic Category: Customer Experience (1.3×)
+- ROI Estimate: High (1.3×)
+Priority Score = (8 / 2) × 1.3 × 1.3 = 4.0 × 1.69 = 6.76
 
 Initiative B:
 - Impact: 9/10
 - Effort: 9/10
-Priority Score = (9 × 10) / 9 = 10
+- Strategic Category: Process Improvement (1.0×)
+- ROI Estimate: Medium (1.0×)
+Priority Score = (9 / 9) × 1.0 × 1.0 = 1.0
 
-➡️ Initiative A has higher priority (better ROI)
+➡️ Initiative A has higher priority (better ROI with strategic alignment)
 ```
 
 **What "good" looks like:**

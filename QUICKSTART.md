@@ -50,35 +50,34 @@ Dashboard opens automatically at `http://localhost:8501`
 
 ## What to Explore
 
-### Page 1: Executive Summary
+### Tab 1: 📊 Executive Summary
 - View team velocity trends
 - Check current sprint health (0-100 score)
-- See portfolio status distribution
+- See portfolio composition across Quick Wins, Major Projects, Fill-ins, and Time Sinks
+- Review team performance heatmap
+- Get automated strategic insights and recommendations
 
-### Page 2: Portfolio Prioritization
-- Explore Impact vs Effort matrix
-- Find "Quick Wins" (high impact, low effort)
+### Tab 2: 🎯 Portfolio & Strategy
+- Explore Impact vs Effort matrix with 4-quadrant classification
+- Find "Quick Wins" (high impact, low effort initiatives)
 - Identify "Time Sinks" to deprioritize
+- Analyze velocity stability and predictability
+- View ROI scatter plot of completed initiatives
 
-### Page 3: Sprint Deep Dive
-- Analyze cycle times by story size
-- Review blocker impact
-- Compare sprint-over-sprint metrics
+### Tab 3: ⚡ Delivery & Performance
+- Select any sprint (1-12) for deep dive analysis
+- Analyze cycle times with box plots and outlier detection
+- Review team performance bar charts
+- Check sprint health gauge
+- View initiative risk distribution (Low/Medium/High)
+- See 3-sprint velocity forecast with confidence intervals
 
-### Page 4: Team Performance
-- See capacity utilization heatmap
-- Check individual velocity contributions
-- Identify bottlenecks
-
-### Page 5: Predictive Insights
-- Run Monte Carlo simulation for next sprint
-- Assess initiative delivery risks
-- View 3-sprint capacity forecast
-
-### Page 6: Strategic Trends
-- Track velocity stability over time
-- Analyze ROI of completed initiatives
-- Review 6-month summary
+### Tab 4: 📚 About the Data
+- Understand data schema and structure
+- Review all sprint timeline metrics in table format
+- See story type and initiative status distributions
+- Read comprehensive metric definitions
+- Learn how to navigate and interpret the dashboard
 
 ## Troubleshooting
 
@@ -125,10 +124,11 @@ Replace CSV files in `/data` folder:
 
 ## Next Steps
 
-1. **Explore the data** - Click through all 6 pages
+1. **Explore the data** - Click through all 4 tabs
 2. **Read the README** - Understand business value and metrics
-3. **Customize** - Adjust thresholds, colors, and calculations
-4. **Integrate** - Connect to your real data sources (Jira, etc.)
+3. **Review USER_GUIDE.md** - Comprehensive documentation with examples
+4. **Customize** - Adjust thresholds, colors, and calculations
+5. **Integrate** - Connect to your real data sources (Jira, etc.)
 
 ## Support
 
