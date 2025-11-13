@@ -2,7 +2,7 @@
 
 **An interactive analytics platform demonstrating advanced data science, statistical modeling, and business intelligence capabilities for Agile teams.**
 
-By Noah Gallagher | [LinkedIn](https://www.linkedin.com/in/noahgallagher/) | [GitHub](https://github.com/noahgallagher1/sprint-portfolio-analytics)
+By Noah Gallagher | [Dashboard](https://sprint-portfolio-analytics-bfvfhcrlagola34wftvxm3.streamlit.app/) | [LinkedIn](https://www.linkedin.com/in/noahgallagher/) | [GitHub](https://github.com/noahgallagher1/sprint-portfolio-analytics)
 
 ---
 
